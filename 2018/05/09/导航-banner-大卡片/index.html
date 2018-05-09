@@ -5,14 +5,18 @@
   
 
   
-  <title>一个简单的小博客</title>
+  <title>导航+banner+大卡片 | 一个简单的小博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="一个简单的小博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="实现效果如图：!截图1.png基于上次代码继续添加后的效果。 首先需要把导航条的样式稍作改动，导航条是固定在屏幕的顶部，无论如果滚动屏幕，位置始终不变。为了达到这个效果，我把整个导航栏的DIV做绝对定位position: fixed，但是这样造成导航条的宽度谁整体缩小如图!截图2.png为了解决宽度的问题，迫不得已引入属性width: 100%，但是这是左右两边的padding位置不对。这是需要在">
+<meta property="og:type" content="article">
+<meta property="og:title" content="导航+banner+大卡片">
+<meta property="og:url" content="http://yoursite.com/2018/05/09/导航-banner-大卡片/index.html">
 <meta property="og:site_name" content="一个简单的小博客">
+<meta property="og:description" content="实现效果如图：!截图1.png基于上次代码继续添加后的效果。 首先需要把导航条的样式稍作改动，导航条是固定在屏幕的顶部，无论如果滚动屏幕，位置始终不变。为了达到这个效果，我把整个导航栏的DIV做绝对定位position: fixed，但是这样造成导航条的宽度谁整体缩小如图!截图2.png为了解决宽度的问题，迫不得已引入属性width: 100%，但是这是左右两边的padding位置不对。这是需要在">
+<meta property="og:updated_time" content="2018-05-09T12:52:00.104Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="一个简单的小博客">
+<meta name="twitter:title" content="导航+banner+大卡片">
+<meta name="twitter:description" content="实现效果如图：!截图1.png基于上次代码继续添加后的效果。 首先需要把导航条的样式稍作改动，导航条是固定在屏幕的顶部，无论如果滚动屏幕，位置始终不变。为了达到这个效果，我把整个导航栏的DIV做绝对定位position: fixed，但是这样造成导航条的宽度谁整体缩小如图!截图2.png为了解决宽度的问题，迫不得已引入属性width: 100%，但是这是左右两边的padding位置不对。这是需要在">
   
     <link rel="alternate" href="/atom.xml" title="一个简单的小博客" type="application/atom+xml">
   
@@ -59,9 +63,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-导航-banner-大卡片" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-导航-banner-大卡片" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/05/09/导航-banner-大卡片/" class="article-date">
   <time datetime="2018-05-09T02:02:05.000Z" itemprop="datePublished">2018-05-09</time>
@@ -74,8 +76,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/09/导航-banner-大卡片/">导航+banner+大卡片</a>
+    <h1 class="article-title" itemprop="name">
+      导航+banner+大卡片
     </h1>
   
 
@@ -102,164 +104,19 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-导航条" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/05/08/导航条/" class="article-date">
-  <time datetime="2018-05-08T07:22:44.000Z" itemprop="datePublished">2018-05-08</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/08/导航条/">简单的导航条</a>
-    </h1>
+    <a href="/2018/05/08/导航条/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">简单的导航条</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>制作一个简单导航条如下图效果<br><img src="https://i.loli.net/2018/05/08/5af1510aaa74e.png" alt="Alt text"><br>HTML代码结构<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;topNavBar&quot; class=&quot;topNavBar&quot;&gt;</span><br><span class="line">	&lt;a href=&quot;#&quot;&gt;&lt;span class=&quot;rs&quot;&gt;RS&lt;/span&gt;&lt;span class=&quot;card&quot;&gt;card&lt;/span&gt;&lt;/a&gt;</span><br><span class="line">	&lt;nav class=&quot;menue&quot;&gt;</span><br><span class="line">		&lt;ul class=&quot;clearfix&quot;&gt;</span><br><span class="line">			&lt;li &gt;&lt;a href=&quot;#siteAbout&quot;&gt;关于&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">			&lt;li &gt;&lt;a href=&quot;#siteSkill&quot;&gt;技能&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">			&lt;li &gt;&lt;a href=&quot;#siteWorks&quot;&gt;作品&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">			&lt;li class=&quot;menuTrigger&quot;&gt;&lt;a href=&quot;#&quot;&gt;博客&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">			&lt;li class=&quot;menuTrigger&quot;&gt;&lt;a href=&quot;#&quot;&gt;日历&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">			&lt;li class=&quot;menuTrigger&quot;&gt;&lt;a href=&quot;#&quot;&gt;联系方式&lt;/a&gt;</span><br><span class="line">			&lt;li class=&quot;menuTrigger&quot;&gt;&lt;a href=&quot;#&quot;&gt;其它&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">		&lt;/ul&gt;   </span><br><span class="line">	&lt;/nav&gt;     </span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
-<p>基本结构是一个大的DIV，包含两个子元素。nav标签是导航条的主体，里面包含一个无序的列表，但是一旦列表的样式都是竖直排列，为了达到水平排列的效果，在ul标签的子元素li标签的css样式使用了float: left，使得无序列表水平排列，还要在ul标签上加上clearfix类。<br>clearfix类的css代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.clearfix::after&#123;</span><br><span class="line">    content: &apos;&apos;;</span><br><span class="line">    display: block;</span><br><span class="line">    clear: both;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></p>
-<p>最后一步是使得a标签和nav标签一左一右水平排列，方法是在nav标签加上float: left，在父元素加上clearfix类，这个是一个固定的套路。<br>注意事项以及细节处理：<br>导航栏左右两侧的两个子元素的高度有可能是不一致的，为了两边元素能够中线对齐（大概），最好把两边元素的高度设置为一样。但是最好不要直接设置height属性，容易引起BUG，最好是使用line-height加上上下padding的方法实现两边子元素高度一致。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/08/导航条/" data-id="cjgz3u3mb0004avor9bpfvuob" class="article-share-link">Teilen</a>
-      
-      
-    </footer>
-  </div>
   
 </article>
-
-
-  
-    <article id="post-实现jQuery思路" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/04/16/实现jQuery思路/" class="article-date">
-  <time datetime="2018-04-16T06:17:15.000Z" itemprop="datePublished">2018-04-16</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/16/实现jQuery思路/">实现类似jQuery的函数思路</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="实现一个-jQuery-的-API"><a href="#实现一个-jQuery-的-API" class="headerlink" title="实现一个 jQuery 的 API"></a>实现一个 jQuery 的 API</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">window.jQuery = function(selector)&#123; </span><br><span class="line">  let nodes = &#123;length: 0&#125;</span><br><span class="line">  let a = document.querySelectorAll(selector)</span><br><span class="line">  for(let i=0;i&lt;a.length;i++)&#123;</span><br><span class="line">    nodes[nodes.length]=a[i]</span><br><span class="line">    nodes.length =nodes.length+ 1</span><br><span class="line">  &#125;</span><br><span class="line">  nodes.addClass = function(className)&#123;</span><br><span class="line">    for(let i=0;i&lt;nodes.length;i++)&#123;</span><br><span class="line">      nodes[i].classList.add(className)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  nodes.setText = function (text)&#123;</span><br><span class="line">    for(let i=0;i&lt;nodes.length;i++)&#123;</span><br><span class="line">      nodes[i].textContent = text</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  return nodes</span><br><span class="line">&#125;</span><br><span class="line">window.$ = jQuery</span><br><span class="line">$div.addClass(&apos;red&apos;) // 可将所有 div 的 class 添加一个 red</span><br><span class="line">$div.setText(&apos;hi&apos;) // 可将所有 div 的 textContent 变为 hi</span><br></pre></td></tr></table></figure>
-<p>以上面是代码。</p>
-<h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>jQuery是目前使用最广泛的javascript函数库。简单的理解可以说jQuery是一个函数，接受一个节点或者选择器，返回一个对象，和对象可用的新的API。<br>首先为了方便使用，需要给jQuery一个命名空间，所以用全局window.jQuery存放jQuery函数。<br>函数接受一个节点或者选择器，通过节点或选择器获取到一个或多个对象。实现的方法先生成一个新的对象，接着通过DOM的 API document.querySelectorAll，把得到的值是遍历，写入新建的对象。然后写一个方法操作这个对象，如上面的代码addClass，目的是接受一个 classNmae，可将所有 div 的 class 添加一个 red 。方法并不复杂，遍历这个伪数组，使用 DOM 的 API.classList.add(className)为每个元素加上 classNmae 便可实现。第二个方法实现的思路也是类似的。最后jQuery函数返回一个新的对象，和新的API。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/04/16/实现jQuery思路/" data-id="cjgz3u3l90002avorsnlusiao" class="article-share-link">Teilen</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-一些迷思" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/01/19/一些迷思/" class="article-date">
-  <time datetime="2018-01-19T08:30:15.000Z" itemprop="datePublished">2018-01-19</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/19/一些迷思/">一些迷思</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="代办事项"><a href="#代办事项" class="headerlink" title="代办事项"></a>代办事项</h2><p>  1.使用深度Linus 或者另一台电脑更新维护Hexo。<br>  2.更换一个主题，并了解主题使用方法。<br>  3.还需要进一步了解更多Hexo的相关知识，进一步完善博客，现在还是有点简陋。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/19/一些迷思/" data-id="cjgz3u3l60001avori0grh97p" class="article-share-link">Teilen</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-开博大吉" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/01/18/开博大吉/" class="article-date">
-  <time datetime="2018-01-18T14:03:52.000Z" itemprop="datePublished">2018-01-18</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/18/开博大吉/">开博大吉</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="使用Hexo搭建博客"><a href="#使用Hexo搭建博客" class="headerlink" title="使用Hexo搭建博客"></a>使用Hexo搭建博客</h1><h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="第一步：搭建环境"><a href="#第一步：搭建环境" class="headerlink" title="第一步：搭建环境"></a>第一步：搭建环境</h3><p>  首先要做的是搭建好环境，因为在安装Hexo之前，需要先安装和配置好Git bash和Node.js。</p>
-<h3 id="第二步：使用Hexo和Github搭建博客"><a href="#第二步：使用Hexo和Github搭建博客" class="headerlink" title="第二步：使用Hexo和Github搭建博客"></a>第二步：使用Hexo和Github搭建博客</h3><p>  1.把环境搭建好了以后，需要首先在Github上创建一个空的仓库。然后进入一个安全的目录，(例如Desktop)使用命令行输入nmp install -g hexo-cli,安装Hexo。<br>  2.待安装完成后，在命令行输入Hexo init xxx，这时在当前目录下新建了一个xxx的目录。<br>  3.在命令行输入npm i，然后Hexo new xxx，这时命令行工具会显示一个md文件路径。<br>  4.使用start 命令可以编辑这个md文件，编辑这个文件的内容就是博客文章的内容。<br>  5.编辑网站配置。在命令行输入start _config.yml，修改6行的title，第9行的author,编辑最后一行type为type: git。最后在type下一行另起一行与type平齐，输入repo: git@github.com:zyfneverforget/zyfneverforget.github.io.git。<br>  6.进入GitHub对应的仓库，打开GitHub Pages功能，如果已经打开了，就直接点击预览链接就可以看到博客啦。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/18/开博大吉/" data-id="cjgz3u3la0003avorwkvtznwy" class="article-share-link">Teilen</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-
 
 </section>
         
