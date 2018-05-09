@@ -83,8 +83,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>实现效果如图：<br><a href="https://i.loli.net/2018/05/09/5af256fd9bf4f.png" target="_blank" rel="noopener">!截图1.png</a><br>基于上次代码继续添加后的效果。</p>
-<p>首先需要把导航条的样式稍作改动，导航条是固定在屏幕的顶部，无论如果滚动屏幕，位置始终不变。为了达到这个效果，我把整个导航栏的DIV做绝对定位position: fixed，但是这样造成导航条的宽度谁整体缩小<br>如图<a href="https://i.loli.net/2018/05/09/5af25992a7480.png" target="_blank" rel="noopener">!截图2.png</a><br>为了解决宽度的问题，迫不得已引入属性width: 100%，但是这是左右两边的padding位置不对。这是需要在加上一个内部的DIV，在这个内部DIV上加padding才可以达到想要的效果。</p>
+        <p>实现效果如图：<br><img src="https://i.loli.net/2018/05/09/5af256fd9bf4f.png" alt="Alt text"><br>基于上次代码继续添加后的效果。</p>
+<p>首先需要把导航条的样式稍作改动，导航条是固定在屏幕的顶部，无论如果滚动屏幕，位置始终不变。为了达到这个效果，我把整个导航栏的DIV做绝对定位position: fixed，但是这样造成导航条的宽度谁整体缩小<br>如图<img src="https://i.loli.net/2018/05/09/5af25992a7480.png" alt="Alt text"><br>为了解决宽度的问题，迫不得已引入属性width: 100%，但是这是左右两边的padding位置不对。这是需要在加上一个内部的DIV，在这个内部DIV上加padding才可以达到想要的效果。</p>
 <p>添加背景图<br>因为图片是在一个单独的div内使用背景图的方式引入的，在这个div内没有其他元素，所以需要设定宽度和高度，否则整个div的高度是为零的。css代码如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.banner&#123;</span><br><span class="line">	background-image: url(./images/rs-cover-2-2-1-1.jpg);</span><br><span class="line">	height: 517px;</span><br><span class="line">	background-position: center center;</span><br><span class="line">	background-size: cover;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>代码没有设定整个宽度，目的是可以让图片可以自适应不同屏幕的宽度，但是要设置background-position: center center，表示图片在水平方向上和垂直方向上居中，background-size: cover 表示盖住所有的面积，按比例缩放。</p>
 <p>制作中间的大卡片<br>HTML代码结构<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;userCard&quot;&gt;</span><br><span class="line">	&lt;div class=&quot;pictureAndText clearfix&quot;&gt;</span><br><span class="line">			&lt;div class=&quot;picture&quot;&gt;&lt;img src=&quot;./images/icon.jpg&quot; alt=&quot;logo&quot;&gt;&lt;/div&gt;</span><br><span class="line">			&lt;div class=&quot;text&quot;&gt;</span><br><span class="line">					&lt;span class=&quot;welcome&quot;&gt;HELLO</span><br><span class="line">							&lt;span class=&quot;triangle&quot;&gt;&lt;/span&gt;</span><br><span class="line">					&lt;/span&gt;</span><br><span class="line">					&lt;h1&gt;张三&lt;/h1&gt;</span><br><span class="line">					&lt;p&gt;前端工程师&lt;/p&gt;</span><br><span class="line">					&lt;hr&gt;</span><br><span class="line">					&lt;dl class=&quot;clearfix&quot;&gt;</span><br><span class="line">							&lt;dt&gt;年龄&lt;/dt&gt;</span><br><span class="line">							&lt;dd&gt;18&lt;/dd&gt;</span><br><span class="line">							&lt;dt&gt;所在城市&lt;/dt&gt;</span><br><span class="line">							&lt;dd&gt;北京&lt;/dd&gt;</span><br><span class="line">							&lt;dt&gt;手机&lt;/dt&gt;</span><br><span class="line">							&lt;dd&gt;13812345678&lt;/dd&gt;</span><br><span class="line">							&lt;dt&gt;邮箱&lt;/dt&gt;</span><br><span class="line">							&lt;dd&gt;535435@qq.com&lt;/dd&gt;</span><br><span class="line">					&lt;/dl&gt;</span><br><span class="line">			&lt;/div&gt;</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">	&lt;footer class=&quot;media&quot;&gt;</span><br><span class="line">			&lt;a href=&quot;&quot;&gt;&lt;svg class=&quot;icon&quot; aria-hidden=&quot;true&quot;&gt;</span><br><span class="line">					&lt;use xlink:href=&quot;#icon-github&quot;&gt;&lt;/use&gt;</span><br><span class="line">			&lt;/svg&gt;&lt;/a&gt;</span><br><span class="line">			&lt;a href=&quot;&quot;&gt;&lt;svg class=&quot;icon&quot; aria-hidden=&quot;true&quot;&gt;</span><br><span class="line">					&lt;use xlink:href=&quot;#icon-weibo&quot;&gt;&lt;/use&gt;</span><br><span class="line">			&lt;/svg&gt;&lt;/a&gt;</span><br><span class="line">			&lt;a href=&quot;&quot;&gt;&lt;svg class=&quot;icon&quot; aria-hidden=&quot;true&quot;&gt;</span><br><span class="line">					&lt;use xlink:href=&quot;#icon-twitter&quot;&gt;&lt;/use&gt;</span><br><span class="line">			&lt;/svg&gt;&lt;/a&gt;</span><br><span class="line">	&lt;/footer&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
@@ -93,14 +93,14 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.userCard .picture,</span><br><span class="line">.userCard .text&#123;</span><br><span class="line">	float: left;</span><br><span class="line">&#125;</span><br><span class="line">.userCard .text&#123;</span><br><span class="line">	width: 470px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>上面两句代码实现的水平左右布局，谨记在父元素上加上clearfix类。还有一点是float元素会整体收缩，如果宽度是有要求的，那就不得不为text整个div加上宽度。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.userCard .text dl dd,</span><br><span class="line">.userCard .text dl dt &#123;</span><br><span class="line">	float: left;</span><br><span class="line">	width: 50%; //关键</span><br><span class="line">	margin-bottom: 25px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>上面两句主要是卫视实现了如图样式<br><a href="https://i.loli.net/2018/05/09/5af2e973a0127.png" target="_blank" rel="noopener">!截图3.png</a><br>这里关键在于设置宽度为width: 50%，这表示一行只能够有两个元素。实现每行只有两个元素组成一组数据。</p>
+<p>上面两句主要是卫视实现了如图样式<br><img src="https://i.loli.net/2018/05/09/5af2e973a0127.png" alt="Alt text"><br>这里关键在于设置宽度为width: 50%，这表示一行只能够有两个元素。实现每行只有两个元素组成一组数据。</p>
 <p>引入ICON<br>在iconfont.cn选择合适的icon按照提示引入页面。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">.userCard footer&#123;</span><br><span class="line">	background: #e8676b;</span><br><span class="line">	text-align: center; //水平居中</span><br><span class="line">&#125;</span><br><span class="line">.userCard footer svg&#123;</span><br><span class="line">	fill: white;       // 改变icon填充的颜色</span><br><span class="line">	width: 30px;       // 改变icon大小</span><br><span class="line">	height: 30px;      // 宽高许一同设置才有效果</span><br><span class="line">	vertical-align: top;  //icon垂直居中</span><br><span class="line">&#125;</span><br><span class="line">.userCard footer a&#123;</span><br><span class="line">	display: inline-block;   //改为inline-block包裹住里面的svg</span><br><span class="line">	border: 1px transparent solid;</span><br><span class="line">	border-radius: 50%;</span><br><span class="line">	padding: 4px;</span><br><span class="line">	margin: 0 15px;</span><br><span class="line">&#125;</span><br><span class="line">.userCard footer a:hover&#123;</span><br><span class="line">	background:#cf5d5f;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/09/导航-banner-大卡片/" data-id="cjgz4amr10002mborenuf5z43" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/05/09/导航-banner-大卡片/" data-id="cjgz4g62i0002v2orx71aivuy" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -139,7 +139,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/08/导航条/" data-id="cjgz4amr30003mborpmjnva8r" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/05/08/导航条/" data-id="cjgz4g62k0003v2or1n7rdbw9" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -178,7 +178,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/04/16/实现jQuery思路/" data-id="cjgz4amqz0001mborgn2uzot7" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/04/16/实现jQuery思路/" data-id="cjgz4g62f0001v2orcdp52970" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -215,7 +215,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/19/一些迷思/" data-id="cjgz4amqt0000mborfj9fv097" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/01/19/一些迷思/" data-id="cjgz4g62a0000v2or7mg12uot" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -253,7 +253,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/18/开博大吉/" data-id="cjgz4amr40004mbor9z8ytkpw" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/01/18/开博大吉/" data-id="cjgz4g62l0004v2or619n2oyo" class="article-share-link">Teilen</a>
       
       
     </footer>
