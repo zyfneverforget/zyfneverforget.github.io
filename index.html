@@ -61,6 +61,52 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-简单一行两列" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/11/简单一行两列/" class="article-date">
+  <time datetime="2018-05-11T00:51:57.000Z" itemprop="datePublished">2018-05-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/11/简单一行两列/">简单一行两列 </a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>###分别用float和flex实现</p>
+<p>如图<br><img src="https://i.loli.net/2018/05/11/5af4e9a831ef6.png" alt="Alt text"></p>
+<p>##难点<br>1.进度条<br>进度条的一般套路是一个div里面再包裹一个div，里面的div使用不同的宽度和背景色显示出进度条的效果<br>HTML代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;li&gt;</span><br><span class="line">	&lt;p&gt;HTML 5 &amp;amp; css 3&lt;/p&gt;</span><br><span class="line">	&lt;div class=&quot;progress&quot;&gt;</span><br><span class="line">		&lt;div class=&quot;progress-bar&quot;&gt;&lt;/div&gt;</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">&lt;/li&gt;</span><br></pre></td></tr></table></figure></p>
+<p>css代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">.progress&#123;</span><br><span class="line">	height: 5px;</span><br><span class="line">	background: #fae1e1;</span><br><span class="line">	border-radius: 2px;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line">.progress .progress-bar&#123;</span><br><span class="line">	height: 100%;</span><br><span class="line">	width: 60%;</span><br><span class="line">	background: #e6686a;</span><br><span class="line">	border-radius: 2px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>因为两个div内没有任何文档流元素，所有必须加上高度。外面div的宽度是根据最外层li元素的宽度来决定。</p>
+<p>2.分别使用两种方法实现实现一行两列中间有空隙<br>一种是常用的float，基本套路是ul里面的li元素float: left和width:50%,ul元素加上clearfix。这样就实现一行两列，里面关键是width：50%，这使得没个li元素的宽度都是父元素ul宽度的50%，一行只能容纳两li元素，其它的会自动换行。<br>但是加上这样的样式一行中相邻两个li元素之间是没有空隙，紧密排列的。为了解决的这个问题，最好是写成以下代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">.innerSkills&#123;</span><br><span class="line">    background: white;</span><br><span class="line">    list-style: none;</span><br><span class="line">    padding: 42px 50px 10px;</span><br><span class="line">&#125;</span><br><span class="line">.innerSkills&gt;li&#123;</span><br><span class="line">    float: left;</span><br><span class="line">    width: 45%;</span><br><span class="line">&#125;</span><br><span class="line">innerSkills&gt;li:nth-child(even)&#123;</span><br><span class="line">    float: right;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>每个子元素的宽度为width:45%，奇数个子元左浮，偶数个子元素右浮动，留出中间空隙。</p>
+<p>另一种是flex<br>css代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">.innerSkills&#123;</span><br><span class="line">	background: white;</span><br><span class="line">	list-style: none;</span><br><span class="line">	display: flex;</span><br><span class="line">	flex-flow: row wrap;  //换行</span><br><span class="line">	justify-content: space-between;  //多余空间放在元素中间</span><br><span class="line">	padding: 40px 50px 10px 50px;</span><br><span class="line">&#125;</span><br><span class="line"> .innerSkills&gt;li&#123;</span><br><span class="line">	flex: 0 0 45%;   // 每个子元素基本大小45%，相当于flex-basis: 45%</span><br><span class="line">	margin-bottom: 40px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>关键的代码看看注释</p>
+<p>HTML代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul class=&quot;innerSkills&quot;&gt;</span><br><span class="line">	&lt;li&gt;</span><br><span class="line">		&lt;p&gt;HTML 5 &amp;amp; css 3&lt;/p&gt;</span><br><span class="line">		&lt;div class=&quot;progress&quot;&gt;</span><br><span class="line">			&lt;div class=&quot;progress-bar&quot;&gt;&lt;/div&gt;</span><br><span class="line">		&lt;/div&gt;</span><br><span class="line">	&lt;/li&gt;</span><br><span class="line">	&lt;li&gt;</span><br><span class="line">		&lt;p&gt;Javascript&lt;/p&gt;</span><br><span class="line">		&lt;div class=&quot;progress&quot;&gt;</span><br><span class="line">			&lt;div class=&quot;progress-bar&quot;&gt;&lt;/div&gt;</span><br><span class="line">		&lt;/div&gt;</span><br><span class="line">	&lt;/li&gt;</span><br><span class="line">	&lt;li&gt;</span><br><span class="line">		&lt;p&gt;jQuary&lt;/p&gt;</span><br><span class="line">		&lt;div class=&quot;progress&quot;&gt;</span><br><span class="line">			&lt;div class=&quot;progress-bar&quot;&gt;&lt;/div&gt;</span><br><span class="line">		&lt;/div&gt;</span><br><span class="line">	&lt;/li&gt;</span><br><span class="line">	&lt;li&gt;</span><br><span class="line">		&lt;p&gt;Vue&lt;/p&gt;</span><br><span class="line">		&lt;div class=&quot;progress&quot;&gt;</span><br><span class="line">			&lt;div class=&quot;progress-bar&quot;&gt;&lt;/div&gt;</span><br><span class="line">		&lt;/div&gt;</span><br><span class="line">	&lt;/li&gt;</span><br><span class="line">	&lt;li&gt;</span><br><span class="line">		&lt;p&gt;React&lt;/p&gt;</span><br><span class="line">		&lt;div class=&quot;progress&quot;&gt;</span><br><span class="line">			&lt;div class=&quot;progress-bar&quot;&gt;&lt;/div&gt;</span><br><span class="line">		&lt;/div&gt;</span><br><span class="line">	&lt;/li&gt;</span><br><span class="line">	&lt;li&gt;</span><br><span class="line">		&lt;p&gt;HTTP&lt;/p&gt;</span><br><span class="line">		&lt;div class=&quot;progress&quot;&gt;</span><br><span class="line">			&lt;div class=&quot;progress-bar&quot;&gt;&lt;/div&gt;</span><br><span class="line">		&lt;/div&gt;</span><br><span class="line">	&lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/05/11/简单一行两列/" data-id="cjh1bq6qk0001eoorvk9xhul3" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-导航-banner-大卡片" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/05/09/导航-banner-大卡片/" class="article-date">
@@ -100,7 +146,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/09/导航-banner-大卡片/" data-id="cjgz4g62i0002v2orx71aivuy" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/05/09/导航-banner-大卡片/" data-id="cjh1bq6qy0005eooryb139n6h" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -139,7 +185,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/08/导航条/" data-id="cjgz4g62k0003v2or1n7rdbw9" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/05/08/导航条/" data-id="cjh1bq6qp0004eoorof76dyq8" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -178,7 +224,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/04/16/实现jQuery思路/" data-id="cjgz4g62f0001v2orcdp52970" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/04/16/实现jQuery思路/" data-id="cjh1bq6qf0000eoorrii58oxi" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -215,7 +261,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/19/一些迷思/" data-id="cjgz4g62a0000v2or7mg12uot" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/01/19/一些迷思/" data-id="cjh1bq6qo0003eoora0o5dcch" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -253,7 +299,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/18/开博大吉/" data-id="cjgz4g62l0004v2or619n2oyo" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/01/18/开博大吉/" data-id="cjh1bq6qn0002eoorjfvxgnl2" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -294,6 +340,10 @@
       <ul>
         
           <li>
+            <a href="/2018/05/11/简单一行两列/">简单一行两列 </a>
+          </li>
+        
+          <li>
             <a href="/2018/05/09/导航-banner-大卡片/">导航+banner+大卡片</a>
           </li>
         
@@ -307,10 +357,6 @@
         
           <li>
             <a href="/2018/01/19/一些迷思/">一些迷思</a>
-          </li>
-        
-          <li>
-            <a href="/2018/01/18/开博大吉/">开博大吉</a>
           </li>
         
       </ul>
