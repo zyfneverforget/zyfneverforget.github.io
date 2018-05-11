@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>与文字同宽进度条 | 一个简单的小博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="简单的与文字同宽度的进度条效果点击后进度条会有一个位置的变化，与用户点击的位置有关 难点1.在文字下面的进度条的宽度与文字的宽度相同。使用了float:left+clearfix 使得文字水平排列，在ul元素上加上text-align: center； 使得文字水平居中，但是这时候的ul元素由于是块元素的宽度是它父元素nav元素的宽度，如果这时候我们在下面加上一个div元素，它的宽度也是与其父元素">
+<meta property="og:type" content="article">
+<meta property="og:title" content="与文字同宽进度条">
+<meta property="og:url" content="http://yoursite.com/2018/05/11/与文字同宽进度条/index.html">
+<meta property="og:site_name" content="一个简单的小博客">
+<meta property="og:description" content="简单的与文字同宽度的进度条效果点击后进度条会有一个位置的变化，与用户点击的位置有关 难点1.在文字下面的进度条的宽度与文字的宽度相同。使用了float:left+clearfix 使得文字水平排列，在ul元素上加上text-align: center； 使得文字水平居中，但是这时候的ul元素由于是块元素的宽度是它父元素nav元素的宽度，如果这时候我们在下面加上一个div元素，它的宽度也是与其父元素">
+<meta property="og:image" content="https://i.loli.net/2018/05/11/5af537f3bdb14.png">
+<meta property="og:image" content="https://i.loli.net/2018/05/11/5af5385b6a78f.png">
+<meta property="og:image" content="https://i.loli.net/2018/05/11/5af5387f93883.png">
+<meta property="og:updated_time" content="2018-05-11T07:12:35.988Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="与文字同宽进度条">
+<meta name="twitter:description" content="简单的与文字同宽度的进度条效果点击后进度条会有一个位置的变化，与用户点击的位置有关 难点1.在文字下面的进度条的宽度与文字的宽度相同。使用了float:left+clearfix 使得文字水平排列，在ul元素上加上text-align: center； 使得文字水平居中，但是这时候的ul元素由于是块元素的宽度是它父元素nav元素的宽度，如果这时候我们在下面加上一个div元素，它的宽度也是与其父元素">
+<meta name="twitter:image" content="https://i.loli.net/2018/05/11/5af537f3bdb14.png">
+  
+    <link rel="alternate" href="/atom.xml" title="一个简单的小博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">一个简单的小博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-与文字同宽进度条" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/11/与文字同宽进度条/" class="article-date">
+  <time datetime="2018-05-11T03:53:27.000Z" itemprop="datePublished">2018-05-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      与文字同宽进度条
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="简单的与文字同宽度的进度条"><a href="#简单的与文字同宽度的进度条" class="headerlink" title="简单的与文字同宽度的进度条"></a>简单的与文字同宽度的进度条</h1><p>效果<br><img src="https://i.loli.net/2018/05/11/5af537f3bdb14.png" alt="alt text"><br><img src="https://i.loli.net/2018/05/11/5af5385b6a78f.png" alt="alt text"><br><img src="https://i.loli.net/2018/05/11/5af5387f93883.png" alt="alt text"><br>点击后进度条会有一个位置的变化，与用户点击的位置有关</p>
+<h2 id="难点"><a href="#难点" class="headerlink" title="难点"></a>难点</h2><p>1.在文字下面的进度条的宽度与文字的宽度相同。<br>使用了float:left+clearfix 使得文字水平排列，在ul元素上加上text-align: center； 使得文字水平居中，但是这时候的ul元素由于是块元素的宽度是它父元素nav元素的宽度，如果这时候我们在下面加上一个div元素，它的宽度也是与其父元素nav元素宽度相等，没有办法达到进度条与上面文字同宽度的效果。<br>为了达到效果，这里采取了在nav元素外面在包裹一个section标签， 把nav元素变成一个内联块元素，diaplay: inline-block; 因为nav变为了内敛块元素它会收缩，在section元素上加上text-align:center; 使得nav元素居中。这时候nav的宽度是由其子元素ul的宽度决定的，这时在下面再加上div，其宽度就是等于ul的宽度，也就可以达到与文字同宽度，这样的好处是不用写死宽度，无论文字增多减少，div的宽度都会自适应。</p>
+<p>2.状态的切换<br>控制状态的切换需要借助JS实现，需要监听用户的点击 .onclick  事件。<br>基本的思路是当用户点击到了文字“所有”，“框架”， “ 原生”的时候发生一个状态的变化，集体一点就是改变元素的类。在css中先把3个类需要的样式写好。<br>细节注意的地方看代码注释<br>HTML结构<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;section id=&quot;siteWorks&quot; class=&quot;portfolio&quot;&gt;</span><br><span class="line">&lt;nav&gt;</span><br><span class="line">	&lt;ul class=&quot;clearfix&quot;&gt;</span><br><span class="line">		&lt;li id=&quot;portfolio1&quot;&gt;所有&lt;/li&gt;</span><br><span class="line">		&lt;li id=&quot;portfolio2&quot;&gt;框架&lt;/li&gt;</span><br><span class="line">		&lt;li id=&quot;portfolio3&quot;&gt;原生&lt;/li&gt;</span><br><span class="line">	&lt;/ul&gt;</span><br><span class="line">	&lt;div id=&quot;portfolioBar&quot; class=&quot;bar state-1&quot;&gt;</span><br><span class="line">		&lt;div class=&quot;bar-inner&quot;&gt;&lt;/div&gt;</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">	&lt;script&gt;</span><br><span class="line">	      //监听用户点击事件</span><br><span class="line">		portfolio1.onclick= function()&#123;    </span><br><span class="line">			portfolioBar.className=&apos;bar state-1&apos;</span><br><span class="line">		&#125;</span><br><span class="line">		portfolio2.onclick= function()&#123;</span><br><span class="line">			portfolioBar.className=&apos;bar state-2&apos;</span><br><span class="line">		&#125;</span><br><span class="line">		portfolio3.onclick= function()&#123;</span><br><span class="line">			portfolioBar.className=&apos;bar state-3&apos;</span><br><span class="line">		&#125;</span><br><span class="line">		&lt;style&gt;</span><br><span class="line">	&lt;/script&gt;</span><br><span class="line">&lt;/nav&gt;</span><br><span class="line">&lt;/section&gt;</span><br></pre></td></tr></table></figure></p>
+<p>css代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">.portfolio&#123;</span><br><span class="line">	max-width: 960px;</span><br><span class="line">	margin: auto;</span><br><span class="line">	text-align: center;</span><br><span class="line">&#125;</span><br><span class="line">.portfolio nav&#123;</span><br><span class="line">	display: inline-block;    //关键点</span><br><span class="line">	margin: 30px 0 ;</span><br><span class="line">&#125;</span><br><span class="line">.portfolio ul&gt;li&#123;</span><br><span class="line">	float: left;</span><br><span class="line">	margin-left: 70px;</span><br><span class="line">	cursor: pointer;   //鼠标形状</span><br><span class="line">&#125;</span><br><span class="line">.portfolio ul&gt;li:first-child&#123;</span><br><span class="line">	margin: 0;              //消除第一个文字的margin-left</span><br><span class="line">&#125;</span><br><span class="line">.portfolio nav .bar&#123;</span><br><span class="line">	height: 5px;</span><br><span class="line">	background: white;</span><br><span class="line">	border-radius: 3px;</span><br><span class="line">	margin-top: 5px;</span><br><span class="line">&#125;</span><br><span class="line">.portfolio  .bar-inner&#123;   </span><br><span class="line">	transition: all 0.3s;   //动画是加在bar-inner上的</span><br><span class="line">&#125;</span><br><span class="line">.portfolio  .bar.state-1 .bar-inner&#123;</span><br><span class="line">	height: 100%;</span><br><span class="line">	width: 13%;</span><br><span class="line">	background: #e6686a;</span><br><span class="line">	border-radius: 3px;</span><br><span class="line">&#125;</span><br><span class="line">.portfolio  .bar.state-2 .bar-inner&#123;</span><br><span class="line">	height: 100%;</span><br><span class="line">	width: 13%;</span><br><span class="line">	background: #e6686a;</span><br><span class="line">	border-radius: 3px;</span><br><span class="line">	margin-left: 44%;   //使用margin来控制位置 </span><br><span class="line">&#125;</span><br><span class="line">.portfolio  .bar.state-3 .bar-inner&#123;</span><br><span class="line">	height: 100%;</span><br><span class="line">	width: 13%;</span><br><span class="line">	background: #e6686a;</span><br><span class="line">	border-radius: 3px;</span><br><span class="line">	margin-left: 87%;   //使用margin来控制位置</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/05/11/与文字同宽进度条/" data-id="cjh1ml5lc00029aormvnygf8p" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/05/11/简单一行两列/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">简单一行两列 </div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/05/11/与文字同宽进度条/">与文字同宽进度条</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/11/简单一行两列/">简单一行两列 </a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/09/导航-banner-大卡片/">导航+banner+大卡片</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/08/导航条/">简单的导航条</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/16/实现jQuery思路/">实现类似jQuery的函数思路</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 ZYF<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
