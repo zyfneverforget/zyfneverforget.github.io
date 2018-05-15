@@ -50,7 +50,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -60,6 +60,46 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-合集" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/12/合集/" class="article-date">
+  <time datetime="2018-05-12T11:38:16.000Z" itemprop="datePublished">2018-05-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/12/合集/">合集</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="琐碎css"><a href="#琐碎css" class="headerlink" title="琐碎css"></a>琐碎css</h2><p>1.使用after实现下border<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">div:after&#123;</span><br><span class="line">	content: &apos;&apos;;</span><br><span class="line">  display: block;</span><br><span class="line">	height: 2px;</span><br><span class="line">	border-radius: 2px;</span><br><span class="line">  background: red;</span><br><span class="line">  position: absolute;</span><br><span class="line">  top:100%;</span><br><span class="line">  left: 0;</span><br><span class="line">	width: 100%;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>一般便于定位会让afte元素r绝对定位，让其父元素相对定位。</p>
+<h2 id="原生JS-API"><a href="#原生JS-API" class="headerlink" title="原生JS API"></a>原生JS API</h2><p> elemnt.classList.add()<br> elment.classList.remove()<br> window.onscroll 用户滚动屏幕事件<br> window.scrollY  文档在垂直方向已滚动的像素值<br> elment.offsetTop 元素距离html顶部像素值<br> elemnt.onmouseenter 鼠标进入<br> elment.onmouseleave 鼠标离开<br> document.querySelectorAll() document选择器，返回符合条件的全部元素<br> preventDefault()      阻止默认事件</p>
+<h2 id="高亮用户正在浏览元素的一种方法"><a href="#高亮用户正在浏览元素的一种方法" class="headerlink" title="高亮用户正在浏览元素的一种方法"></a>高亮用户正在浏览元素的一种方法</h2><p> 基本思路首先需要监听用户的onscroll事件，在需要高亮的多个元素上插入相同的标记，用document.querySelectorAll(‘标记的内容’)获取到所有的元素然后取得元素距离html文档顶部的高度，elment.offsetTop，在与window.scrollY的值进行比较，差值最小的最可以认为是用户当前浏览的元素。最后为元素加上特定css样式<br>实现代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">window.onscroll = function () &#123;</span><br><span class="line">let specialTags = document.querySelectorAll(&apos;[data-x]&apos;) // 取得标记的元素</span><br><span class="line">	let minIndex = 0</span><br><span class="line">	for(let i=1;i&lt;specialTags.length;i++)&#123;</span><br><span class="line">		if(Math.abs(specialTags[i].offsetTop-window.scrollY) &lt; Math.abs(specialTags[minIndex].offsetTop-window.scrollY))&#123;   //比较与window.scrollY的距离</span><br><span class="line">			minIndex=i</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">  specialTags[minIndex].classList.add(&apos;highlight&apos;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/05/12/合集/" data-id="cjh7qoxz90000bcorekqnzjx0" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-与文字同宽进度条" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -91,7 +131,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/11/与文字同宽进度条/" data-id="cjh1ml5lc00029aormvnygf8p" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/05/11/与文字同宽进度条/" data-id="cjh7qoxzi0003bcory6y8k8ff" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -136,7 +176,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/11/简单一行两列/" data-id="cjh1ml5lh00069aorptibygh3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/05/11/简单一行两列/" data-id="cjh7qoxzq0007bcorsbmafqun" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -185,7 +225,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/09/导航-banner-大卡片/" data-id="cjh1ml5ld00039aor58drw3hd" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/05/09/导航-banner-大卡片/" data-id="cjh7qoxzh0002bcor2mk9ajjk" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -224,7 +264,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/08/导航条/" data-id="cjh1ml5lf00049aor8guvgr4w" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/05/08/导航条/" data-id="cjh7qoxzl0005bcorhuz6gxzy" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -263,7 +303,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/04/16/实现jQuery思路/" data-id="cjh1ml5l400009aorfu3s7t1o" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/04/16/实现jQuery思路/" data-id="cjh7qoxzk0004bcorhd6rdpn4" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -300,7 +340,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/19/一些迷思/" data-id="cjh1ml5l900019aoriz7ua3ke" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/01/19/一些迷思/" data-id="cjh7qoxze0001bcor5ukn9am0" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -338,7 +378,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/18/开博大吉/" data-id="cjh1ml5lg00059aor7vuwsya7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/01/18/开博大吉/" data-id="cjh7qoxzn0006bcorxoui4pj9" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -364,7 +404,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">Archiv</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li></ul>
     </div>
@@ -374,9 +414,13 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">letzter Beitrag</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/05/12/合集/">合集</a>
+          </li>
         
           <li>
             <a href="/2018/05/11/与文字同宽进度条/">与文字同宽进度条</a>
@@ -392,10 +436,6 @@
         
           <li>
             <a href="/2018/05/08/导航条/">简单的导航条</a>
-          </li>
-        
-          <li>
-            <a href="/2018/04/16/实现jQuery思路/">实现类似jQuery的函数思路</a>
           </li>
         
       </ul>
