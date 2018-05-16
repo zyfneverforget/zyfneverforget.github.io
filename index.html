@@ -61,6 +61,47 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-添加留言功能" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/16/添加留言功能/" class="article-date">
+  <time datetime="2018-05-16T13:18:49.000Z" itemprop="datePublished">2018-05-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/16/添加留言功能/">添加留言功能</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="在简历中实现留言功能"><a href="#在简历中实现留言功能" class="headerlink" title="在简历中实现留言功能"></a>在简历中实现留言功能</h2><p>在页面中加入留言功能，通常的情况下需要借助后台服务器，因为现在只是做一个demo所以引入一个免费的服务器lean cloud。<br>下面代码是初始化，保存和获取留言代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var APP_ID = &apos;xxx&apos;;      //这里的key和ID每个项目都是不一样的</span><br><span class="line">var APP_KEY = &apos;yyy&apos;;</span><br><span class="line"></span><br><span class="line">AV.init(&#123;</span><br><span class="line">  appId: APP_ID,</span><br><span class="line">  appKey: APP_KEY</span><br><span class="line">&#125;);   //初始化结束</span><br></pre></td></tr></table></figure></p>
+<p>测试代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var TestObject = AV.Object.extend(&apos;TestObject&apos;);  //这里的TestObjec可以该成任意需要的class</span><br><span class="line">var testObject = new TestObject();</span><br><span class="line">testObject.save(&#123;         //这里应该就是我们需要写入的数据</span><br><span class="line">  words: &apos;Hello World!&apos;</span><br><span class="line">&#125;).then(function(object) &#123;</span><br><span class="line">  alert(&apos;LeanCloud Rocks!&apos;);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>获取对象代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var query = new AV.Query(&apos;Todo&apos;);</span><br><span class="line">query.find().then(function (todo) &#123;  //用find方法可以获取所有的对象</span><br><span class="line">  // 成功获得实例</span><br><span class="line">  </span><br><span class="line">&#125;, function (error) &#123;</span><br><span class="line">  // 异常处理</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>以上代码是做demo的代码，可能有不完善，具体还是要看文档。<br>使用其它的库主要思路是CRM copy run modify 复制，运行，修改。<br>HTML代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;form id=&quot;message&quot; style=&quot;text-align:center&quot;&gt;</span><br><span class="line">  &lt;label for=&quot;&quot;&gt;姓名：&lt;/label&gt;</span><br><span class="line">  &lt;input type=&quot;text&quot; name=&quot;name&quot;&gt;</span><br><span class="line">  &lt;label for=&quot;&quot;&gt;内容：&lt;/label&gt;</span><br><span class="line">  &lt;input type=&quot;text&quot; name=&apos;content&apos;&gt;</span><br><span class="line">  &lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure></p>
+<p>注意是监听form标签的submit事件。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/05/16/添加留言功能/" data-id="cjh96f8w10004xvorenvov2t8" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-合集" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/05/12/合集/" class="article-date">
@@ -91,7 +132,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/12/合集/" data-id="cjh7qoxz90000bcorekqnzjx0" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/05/12/合集/" data-id="cjh96f8wp0008xvorl3odoqc5" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -131,7 +172,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/11/与文字同宽进度条/" data-id="cjh7qoxzi0003bcory6y8k8ff" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/05/11/与文字同宽进度条/" data-id="cjh96f8vv0001xvormks2t0y0" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -176,7 +217,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/11/简单一行两列/" data-id="cjh7qoxzq0007bcorsbmafqun" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/05/11/简单一行两列/" data-id="cjh96f8w20005xvorkpqbcjft" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -225,7 +266,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/09/导航-banner-大卡片/" data-id="cjh7qoxzh0002bcor2mk9ajjk" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/05/09/导航-banner-大卡片/" data-id="cjh96f8vy0002xvorjza22jm7" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -264,7 +305,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/08/导航条/" data-id="cjh7qoxzl0005bcorhuz6gxzy" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/05/08/导航条/" data-id="cjh96f8w30006xvor7p71xxhb" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -303,7 +344,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/04/16/实现jQuery思路/" data-id="cjh7qoxzk0004bcorhd6rdpn4" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/04/16/实现jQuery思路/" data-id="cjh96f8vz0003xvor62w7odq5" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -340,7 +381,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/19/一些迷思/" data-id="cjh7qoxze0001bcor5ukn9am0" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/01/19/一些迷思/" data-id="cjh96f8vq0000xvorg7zwyd87" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -378,7 +419,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/18/开博大吉/" data-id="cjh7qoxzn0006bcorxoui4pj9" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/01/18/开博大吉/" data-id="cjh96f8w40007xvorjny700my" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -419,6 +460,10 @@
       <ul>
         
           <li>
+            <a href="/2018/05/16/添加留言功能/">添加留言功能</a>
+          </li>
+        
+          <li>
             <a href="/2018/05/12/合集/">合集</a>
           </li>
         
@@ -432,10 +477,6 @@
         
           <li>
             <a href="/2018/05/09/导航-banner-大卡片/">导航+banner+大卡片</a>
-          </li>
-        
-          <li>
-            <a href="/2018/05/08/导航条/">简单的导航条</a>
           </li>
         
       </ul>
