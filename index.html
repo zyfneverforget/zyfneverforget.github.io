@@ -91,7 +91,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/31/Promise/" data-id="cjnwmc53b0001ujorqp160y2v" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/10/31/Promise/" data-id="cjnwsvwic0002fqornm08oz13" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -132,7 +132,61 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/30/Cookie/" data-id="cjnwmc53d0002ujorx9tx6ohm" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/08/30/Cookie/" data-id="cjnwsvwi20000fqori9seg7o0" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-对象" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/08/18/对象/" class="article-date">
+  <time datetime="2018-08-18T14:03:52.000Z" itemprop="datePublished">2018-08-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/18/对象/">对象的继承</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="对象的继承"><a href="#对象的继承" class="headerlink" title="对象的继承"></a>对象的继承</h2><p>当使用构造函数生成对象时候如何实现对象之间的继承？</p>
+<p>例如假设有一个对象为人类，另一个对象为工人，对象工人如何能够继承人类的属性？</p>
+<p>``Hunman是一个构造函数，生成人类的实例<br>  function Hunman(option){<br>    this.body = objec.body<br>    this.age = objec.age<br>  }<br>  Human.prototype.walk = function(){<!-- ... -->}<br>  Human.prototype.sleep= function(){<!-- ... -->}</p>
+<p>//构造函数假设为上述形式，下面是工人的构造函数</p>
+<p>function Worker(option){<br>  this.name = option.name<br>  this.gender = option.gender<br>}<br> Work.prototype.occupation = ‘worker’<br> ``</p>
+<p>这时候可以使用原型链来进行继承。每一个有构造函数生成的对象都有一个<strong>proto</strong>的属性，当我们使用new Woek(option)生成一个新的对象的时候，JS自动的将这个属性指定为其构造函数Worker.prototype，也就是work.<strong>proto</strong>=Work.prototype; 这样每个新生成的对象都会拥有自身的属性，而且继承了occupation这个公共属性。<br>但是新的对象并没有继承人类的任何属性，下面用几种不同的代码形式实现。</p>
+<p>一般来说最直观简单的方法就是 Work.prototype.<strong>proto</strong> = Human.prototype;但是这种方法在实际中并不能直接使用，下面是实际的代码</p>
+<p><code>function foo(){}  //先声明一个新的函数，函数内为空
+   foo.prototype = Human.prototype
+   Work.prototype = new foo()   //这句是重点</code></p>
+<p>为什么上面的代码可以实现 Work.prototype.<strong>proto</strong> = Human.prototype<br>我们分析一下Work.prototype = new foo() 函数是怎么执行的。用代码来说明<br><code>new foo(){
+    this=Work.prototype
+    this.__proto__ = foo.prototype  // 这个是JS设计new的时候规定的，new出来的新对象的__proto__等于对象的构造函数的prototype
+}</code></p>
+<p>还有一种代码的实现方式，代码会简单一些，原理是一样的。<br><code>Work.prototype =Object.create(Human.prototype)</code><br>这样Work构造函数就继承了Human的全部公共属性，但是用new Work生成的实例并没有继承Human.body和Human.age属性，所以我们还需要在Work构造加入代码<br>``Human是一个构造函数，生成人类的实例<br>  function Human(option){<br>    this.body = option.body<br>    this.age = option.age<br>  }<br>  Human.prototype.walk = function(){<!-- ... -->}<br>  Human.prototype.sleep= function(){<!-- ... -->}</p>
+<p>  function Worker(option){<br>  Human.call(this,option)  //必须传入this<br>  this.name = option.name<br>  this.gender = option.gender<br>}<br> Worker.prototype =Object.create(Human.prototype)  //必须放最前<br> Worker.prototype.occupation = ‘worker’<br>``<br>以上是完整的代码,使用原型实现继承。</p>
+<p>##用class实现继承<br>在ES6,JS提供了class语法，下面代码就是将用类来实现继承<br>``<br>  class Human{<br>    constructor(option){ //自身特有的属性需放在这个函数内<br>      this.body = objec.body<br>      this.age = objec.age<br>    }<br>    //一下为公共属性，但是必须为函数，无法接受其他<br>    walk(){<!-- ... -->}<br>    sleep(){<!-- ... -->}<br>  }</p>
+<p>  class Work extends Human{     //Work继承了Human<br>    constructor(option){<br>      super(option)     //这个相当于 Huamn.call(this,option) 而且super一定在this前面调用<br>      this.name = option.name<br>      this.gender = option.gender<br>    }<br>  }</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/08/18/对象/" data-id="cjnwsvwij0008fqorknqlwudq" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -178,7 +232,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/04/Canvas画板/" data-id="cjnwmc5360000ujorlk6m1426" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/06/04/Canvas画板/" data-id="cjnwsvwi90001fqor15lmiky4" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -228,7 +282,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/31/配置webpack-3/" data-id="cjnwmc53t000eujorrgn5rpny" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/05/31/配置webpack-3/" data-id="cjnwsvwir000efqorpfdkkkcl" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -273,7 +327,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/22/会动的简历/" data-id="cjnwmc53h0005ujordtcrhyxc" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/05/22/会动的简历/" data-id="cjnwsvwig0005fqorjv5qnhb8" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -314,7 +368,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/16/添加留言功能/" data-id="cjnwmc53q000cujorhxx8wq5n" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/05/16/添加留言功能/" data-id="cjnwsvwip000cfqorg597uswa" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -354,7 +408,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/12/合集/" data-id="cjnwmc53j0006ujorqf9ia9jl" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/05/12/合集/" data-id="cjnwsvwih0006fqorkeuow8t7" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -394,7 +448,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/11/与文字同宽进度条/" data-id="cjnwmc53g0004ujor37f3o9gu" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/05/11/与文字同宽进度条/" data-id="cjnwsvwif0004fqortvllujug" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -439,56 +493,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/11/简单一行两列/" data-id="cjnwmc53s000dujor87cq5g08" class="article-share-link">Teilen</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-导航-banner-大卡片" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/05/09/导航-banner-大卡片/" class="article-date">
-  <time datetime="2018-05-09T02:02:05.000Z" itemprop="datePublished">2018-05-09</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/09/导航-banner-大卡片/">导航+banner+大卡片</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>实现效果如图：<br><img src="https://i.loli.net/2018/05/09/5af256fd9bf4f.png" alt="Alt text"><br>基于上次代码继续添加后的效果。</p>
-<p>首先需要把导航条的样式稍作改动，导航条是固定在屏幕的顶部，无论如果滚动屏幕，位置始终不变。为了达到这个效果，我把整个导航栏的DIV做绝对定位position: fixed，但是这样造成导航条的宽度谁整体缩小<br>如图<img src="https://i.loli.net/2018/05/09/5af25992a7480.png" alt="Alt text"><br>为了解决宽度的问题，迫不得已引入属性width: 100%，但是这是左右两边的padding位置不对。这是需要在加上一个内部的DIV，在这个内部DIV上加padding才可以达到想要的效果。</p>
-<p>添加背景图<br>因为图片是在一个单独的div内使用背景图的方式引入的，在这个div内没有其他元素，所以需要设定宽度和高度，否则整个div的高度是为零的。css代码如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.banner&#123;</span><br><span class="line">	background-image: url(./images/rs-cover-2-2-1-1.jpg);</span><br><span class="line">	height: 517px;</span><br><span class="line">	background-position: center center;</span><br><span class="line">	background-size: cover;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>代码没有设定整个宽度，目的是可以让图片可以自适应不同屏幕的宽度，但是要设置background-position: center center，表示图片在水平方向上和垂直方向上居中，background-size: cover 表示盖住所有的面积，按比例缩放。</p>
-<p>制作中间的大卡片<br>HTML代码结构<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;userCard&quot;&gt;</span><br><span class="line">	&lt;div class=&quot;pictureAndText clearfix&quot;&gt;</span><br><span class="line">			&lt;div class=&quot;picture&quot;&gt;&lt;img src=&quot;./images/icon.jpg&quot; alt=&quot;logo&quot;&gt;&lt;/div&gt;</span><br><span class="line">			&lt;div class=&quot;text&quot;&gt;</span><br><span class="line">					&lt;span class=&quot;welcome&quot;&gt;HELLO</span><br><span class="line">							&lt;span class=&quot;triangle&quot;&gt;&lt;/span&gt;</span><br><span class="line">					&lt;/span&gt;</span><br><span class="line">					&lt;h1&gt;张三&lt;/h1&gt;</span><br><span class="line">					&lt;p&gt;前端工程师&lt;/p&gt;</span><br><span class="line">					&lt;hr&gt;</span><br><span class="line">					&lt;dl class=&quot;clearfix&quot;&gt;</span><br><span class="line">							&lt;dt&gt;年龄&lt;/dt&gt;</span><br><span class="line">							&lt;dd&gt;18&lt;/dd&gt;</span><br><span class="line">							&lt;dt&gt;所在城市&lt;/dt&gt;</span><br><span class="line">							&lt;dd&gt;北京&lt;/dd&gt;</span><br><span class="line">							&lt;dt&gt;手机&lt;/dt&gt;</span><br><span class="line">							&lt;dd&gt;13812345678&lt;/dd&gt;</span><br><span class="line">							&lt;dt&gt;邮箱&lt;/dt&gt;</span><br><span class="line">							&lt;dd&gt;535435@qq.com&lt;/dd&gt;</span><br><span class="line">					&lt;/dl&gt;</span><br><span class="line">			&lt;/div&gt;</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">	&lt;footer class=&quot;media&quot;&gt;</span><br><span class="line">			&lt;a href=&quot;&quot;&gt;&lt;svg class=&quot;icon&quot; aria-hidden=&quot;true&quot;&gt;</span><br><span class="line">					&lt;use xlink:href=&quot;#icon-github&quot;&gt;&lt;/use&gt;</span><br><span class="line">			&lt;/svg&gt;&lt;/a&gt;</span><br><span class="line">			&lt;a href=&quot;&quot;&gt;&lt;svg class=&quot;icon&quot; aria-hidden=&quot;true&quot;&gt;</span><br><span class="line">					&lt;use xlink:href=&quot;#icon-weibo&quot;&gt;&lt;/use&gt;</span><br><span class="line">			&lt;/svg&gt;&lt;/a&gt;</span><br><span class="line">			&lt;a href=&quot;&quot;&gt;&lt;svg class=&quot;icon&quot; aria-hidden=&quot;true&quot;&gt;</span><br><span class="line">					&lt;use xlink:href=&quot;#icon-twitter&quot;&gt;&lt;/use&gt;</span><br><span class="line">			&lt;/svg&gt;&lt;/a&gt;</span><br><span class="line">	&lt;/footer&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
-<p>首先需要为卡片的结构进行一个划分，整个卡片一用一个大的DIV分类。根据需求初步分为上下结构，上部分是pictureAndText，下面是footer。但是需要为了达到左右布局的效果 ，在pictureAndText还需要内在进行一个div的划分，分为picture和text两个div方便进行左右的布局。<br>主要css代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.userCard&#123;</span><br><span class="line">	max-width: 940px; </span><br><span class="line">	margin: auto;</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>上面两句css代码实现的效果是为整个卡片设置一个最大的宽度，margin： auto; 是为了使得大卡片div水平居中，这是一个常规的套路，能使一个有宽度的div水平居中的。前提是有一个宽度。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.userCard .picture,</span><br><span class="line">.userCard .text&#123;</span><br><span class="line">	float: left;</span><br><span class="line">&#125;</span><br><span class="line">.userCard .text&#123;</span><br><span class="line">	width: 470px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>上面两句代码实现的水平左右布局，谨记在父元素上加上clearfix类。还有一点是float元素会整体收缩，如果宽度是有要求的，那就不得不为text整个div加上宽度。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.userCard .text dl dd,</span><br><span class="line">.userCard .text dl dt &#123;</span><br><span class="line">	float: left;</span><br><span class="line">	width: 50%; //关键</span><br><span class="line">	margin-bottom: 25px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>上面两句主要是卫视实现了如图样式<br><img src="https://i.loli.net/2018/05/09/5af2e973a0127.png" alt="Alt text"><br>这里关键在于设置宽度为width: 50%，这表示一行只能够有两个元素。实现每行只有两个元素组成一组数据。</p>
-<p>引入ICON<br>在iconfont.cn选择合适的icon按照提示引入页面。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">.userCard footer&#123;</span><br><span class="line">	background: #e8676b;</span><br><span class="line">	text-align: center; //水平居中</span><br><span class="line">&#125;</span><br><span class="line">.userCard footer svg&#123;</span><br><span class="line">	fill: white;       // 改变icon填充的颜色</span><br><span class="line">	width: 30px;       // 改变icon大小</span><br><span class="line">	height: 30px;      // 宽高许一同设置才有效果</span><br><span class="line">	vertical-align: top;  //icon垂直居中</span><br><span class="line">&#125;</span><br><span class="line">.userCard footer a&#123;</span><br><span class="line">	display: inline-block;   //改为inline-block包裹住里面的svg</span><br><span class="line">	border: 1px transparent solid;</span><br><span class="line">	border-radius: 50%;</span><br><span class="line">	padding: 4px;</span><br><span class="line">	margin: 0 15px;</span><br><span class="line">&#125;</span><br><span class="line">.userCard footer a:hover&#123;</span><br><span class="line">	background:#cf5d5f;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/09/导航-banner-大卡片/" data-id="cjnwmc53m0009ujorj06f403i" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/05/11/简单一行两列/" data-id="cjnwsvwiq000dfqori8r16qu4" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -521,7 +526,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archiv</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li></ul>
     </div>
   </div>
 
@@ -542,15 +547,15 @@
           </li>
         
           <li>
+            <a href="/2018/08/18/对象/">对象的继承</a>
+          </li>
+        
+          <li>
             <a href="/2018/06/04/Canvas画板/">Canvas画板</a>
           </li>
         
           <li>
             <a href="/2018/05/31/配置webpack-3/">配置webpack 3</a>
-          </li>
-        
-          <li>
-            <a href="/2018/05/22/会动的简历/">会动的简历</a>
           </li>
         
       </ul>
