@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>会动的简历 | 一个简单的小博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="概述会动的简历，就好像一个打字员在不断地录入文字，页面呈现动态效果，同时还有能显示CSS样式。主要的js代码123456789101112131415function wireCode(Pre,code,callback)&amp;#123;  let domCode = document.querySelector(&amp;apos;#code&amp;apos;)  //domCode是一个id为code的&amp;lt;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="会动的简历">
+<meta property="og:url" content="http://yoursite.com/2018/05/22/会动的简历/index.html">
+<meta property="og:site_name" content="一个简单的小博客">
+<meta property="og:description" content="概述会动的简历，就好像一个打字员在不断地录入文字，页面呈现动态效果，同时还有能显示CSS样式。主要的js代码123456789101112131415function wireCode(Pre,code,callback)&amp;#123;  let domCode = document.querySelector(&amp;apos;#code&amp;apos;)  //domCode是一个id为code的&amp;lt;">
+<meta property="og:updated_time" content="2018-05-22T06:15:16.697Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="会动的简历">
+<meta name="twitter:description" content="概述会动的简历，就好像一个打字员在不断地录入文字，页面呈现动态效果，同时还有能显示CSS样式。主要的js代码123456789101112131415function wireCode(Pre,code,callback)&amp;#123;  let domCode = document.querySelector(&amp;apos;#code&amp;apos;)  //domCode是一个id为code的&amp;lt;">
+  
+    <link rel="alternate" href="/atom.xml" title="一个简单的小博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">一个简单的小博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-会动的简历" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/22/会动的简历/" class="article-date">
+  <time datetime="2018-05-22T02:28:46.000Z" itemprop="datePublished">2018-05-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      会动的简历
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>会动的简历，就好像一个打字员在不断地录入文字，页面呈现动态效果，同时还有能显示CSS样式。<br>主要的js代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">function wireCode(Pre,code,callback)&#123;</span><br><span class="line">  let domCode = document.querySelector(&apos;#code&apos;)  //domCode是一个id为code的&lt;pre&gt;标签</span><br><span class="line">  let pre = Pre || &apos;&apos;</span><br><span class="line">  let n=0</span><br><span class="line">  let id = setInterval(()=&gt;&#123;</span><br><span class="line">    n +=1</span><br><span class="line">    domCode.innerHTML= Prism.highlight(pre+code.substring(0,n), Prism.languages.css, &apos;css&apos;);</span><br><span class="line">    style.innerHTML=pre+code.substring(0,n)</span><br><span class="line">    domCode.scrollTop = 10000</span><br><span class="line">    if(n&gt;=code.length)&#123;</span><br><span class="line">      window.clearInterval(id)</span><br><span class="line">      callback()</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,20)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>上面的函数是经过优化的结果，实现的功能是接受字符串，然后将字符串中的字符一个一个地往页面内写，呈现一个往页面内写代码的动态过程。</p>
+<h2 id="实现细节"><a href="#实现细节" class="headerlink" title="实现细节"></a>实现细节</h2><p>代码最好包裹在<pre>标签内，因为pre标签内的内容会保留所有的缩进与换行。然后往pre标签内容加入到HTML,用到了innerHTML这个API。实现将字符一个一个网页写的效果是使用了setInterval定时器,时间为间隔20毫秒往页面写入一个字符,这里用到了字符串的一个方法str.substring()个方法，这个方法可以接受两个参数，一般是数字，如str.substring(0,3)返0到3不包括3之间的字符。简单描述一下这个过程，假如我们输入的字符串是‘你好123’，第一个20毫秒substring(0,1)返回的内容是‘你’，我们往页面写如了字符‘你’，当时间到达第二个20毫秒，substring(0,2)返回字符串‘你好’，这个页面内的 ‘你’ 会被 ‘你好 ’覆盖，覆盖的过程很快，所以我们只是觉得字符是一个一个增加。</pre></p>
+<h3 id="加入CSS"><a href="#加入CSS" class="headerlink" title="加入CSS"></a>加入CSS</h3><p>其实我们往页面写入的内容是CSS，但是我们往HTM内写入CSS样式是没有任何效果的，这里的一个解决办法是在页面header标签内创建一个style标签，然后在页面内写的蓉蓉，同步地往这个style标签写入。上面writeCode函数的代码其中两句实现了这个需求。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">domCode.innerHTML= Prism.highlight(pre+code.substring(0,n), Prism.languages.css, &apos;css&apos;)</span><br><span class="line">style.innerHTML=pre+code.substring(0,n)</span><br></pre></td></tr></table></figure></p>
+<p>而且因为写的是CSS代码，所以不属于代码的内容我们使用注释来表示，代码如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">let result=`</span><br><span class="line">/**您好!我叫温斯顿，来自美丽新世界，34岁。**/</span><br><span class="line"></span><br><span class="line">*&#123;transition: all 0.8s;&#125;</span><br><span class="line"></span><br><span class="line">body&#123;</span><br><span class="line">  background: #efefef;</span><br><span class="line">  font-size: 16px;</span><br><span class="line">&#125;</span><br><span class="line">/*来一点动画*/</span><br><span class="line">#code&#123;</span><br><span class="line">  transform : rotate(360deg)</span><br><span class="line">&#125;</span><br><span class="line">/*我需要一点代码高亮*/</span><br><span class="line">.token.selector&#123;</span><br><span class="line">  color: #690;</span><br><span class="line">&#125;</span><br><span class="line">.token.property&#123;</span><br><span class="line">  color:#905;</span><br><span class="line">&#125;</span><br><span class="line">`</span><br></pre></td></tr></table></figure>
+<p>上面变量result储存的多行字符串，为了方便使用了ES6的多行字符串标识符`。</p>
+<h3 id="加入代码高亮"><a href="#加入代码高亮" class="headerlink" title="加入代码高亮"></a>加入代码高亮</h3><p>这是使用到了一个库，prism.js。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">domCode.innerHTML= Prism.highlight(pre+code.substring(0,n), Prism.languages.css, &apos;css&apos;)</span><br></pre></td></tr></table></figure></p>
+<p>这个库引入一个Prism对象，使用highlight方法可以高亮代码。第一个参数是需要高亮的代码段，第二个参数是选择的语言。具体细节看文档。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/05/22/会动的简历/" data-id="cjnwlj4iq00028normijrkir5" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/05/31/配置webpack-3/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          配置webpack 3
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/05/16/添加留言功能/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">添加留言功能</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/10/31/Promise/">Promise</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/31/配置webpack-3/">配置webpack 3</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/22/会动的简历/">会动的简历</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/16/添加留言功能/">添加留言功能</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/12/合集/">合集</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 ZYF<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

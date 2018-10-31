@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>一个简单的小博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="一个简单的小博客">
+<meta property="og:url" content="http://yoursite.com/page/2/index.html">
+<meta property="og:site_name" content="一个简单的小博客">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="一个简单的小博客">
+  
+    <link rel="alternate" href="/atom.xml" title="一个简单的小博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">一个简单的小博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-对象" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/18/对象/" class="article-date">
+  <time datetime="2018-03-18T14:03:52.000Z" itemprop="datePublished">2018-03-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/18/对象/">对象的继承</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="对象的继承"><a href="#对象的继承" class="headerlink" title="对象的继承"></a>对象的继承</h2><p>当使用构造函数生成对象时候如何实现对象之间的继承？</p>
+<p>例如假设有一个对象为人类，另一个对象为工人，对象工人如何能够继承人类的属性？</p>
+<p>``Hunman是一个构造函数，生成人类的实例<br>  function Hunman(option){<br>    this.body = objec.body<br>    this.age = objec.age<br>  }<br>  Human.prototype.walk = function(){<!-- ... -->}<br>  Human.prototype.sleep= function(){<!-- ... -->}</p>
+<p>//构造函数假设为上述形式，下面是工人的构造函数</p>
+<p>function Worker(option){<br>  this.name = option.name<br>  this.gender = option.gender<br>}<br> Work.prototype.occupation = ‘worker’<br> ``</p>
+<p>这时候可以使用原型链来进行继承。每一个有构造函数生成的对象都有一个<strong>proto</strong>的属性，当我们使用new Woek(option)生成一个新的对象的时候，JS自动的将这个属性指定为其构造函数Worker.prototype，也就是work.<strong>proto</strong>=Work.prototype; 这样每个新生成的对象都会拥有自身的属性，而且继承了occupation这个公共属性。<br>但是新的对象并没有继承人类的任何属性，下面用几种不同的代码形式实现。</p>
+<p>一般来说最直观简单的方法就是 Work.prototype.<strong>proto</strong> = Human.prototype;但是这种方法在实际中并不能直接使用，下面是实际的代码</p>
+<p><code>function foo(){}  //先声明一个新的函数，函数内为空
+   foo.prototype = Human.prototype
+   Work.prototype = new foo()   //这句是重点</code></p>
+<p>为什么上面的代码可以实现 Work.prototype.<strong>proto</strong> = Human.prototype<br>我们分析一下Work.prototype = new foo() 函数是怎么执行的。用代码来说明<br><code>new foo(){
+    this=Work.prototype
+    this.__proto__ = foo.prototype  // 这个是JS设计new的时候规定的，new出来的新对象的__proto__等于对象的构造函数的prototype
+}</code></p>
+<p>还有一种代码的实现方式，代码会简单一些，原理是一样的。<br><code>Work.prototype =Object.create(Human.prototype)</code><br>这样Work构造函数就继承了Human的全部公共属性，但是用new Work生成的实例并没有继承Human.body和Human.age属性，所以我们还需要在Work构造加入代码<br>``Human是一个构造函数，生成人类的实例<br>  function Human(option){<br>    this.body = option.body<br>    this.age = option.age<br>  }<br>  Human.prototype.walk = function(){<!-- ... -->}<br>  Human.prototype.sleep= function(){<!-- ... -->}</p>
+<p>  function Worker(option){<br>  Human.call(this,option)  //必须传入this<br>  this.name = option.name<br>  this.gender = option.gender<br>}<br> Worker.prototype =Object.create(Human.prototype)  //必须放最前<br> Worker.prototype.occupation = ‘worker’<br>``<br>以上是完整的代码,使用原型实现继承。</p>
+<p>##用class实现继承<br>在ES6,JS提供了class语法，下面代码就是将用类来实现继承<br>``<br>  class Human{<br>    constructor(option){ //自身特有的属性需放在这个函数内<br>      this.body = objec.body<br>      this.age = objec.age<br>    }<br>    //一下为公共属性，但是必须为函数，无法接受其他<br>    walk(){<!-- ... -->}<br>    sleep(){<!-- ... -->}<br>  }</p>
+<p>  class Work extends Human{     //Work继承了Human<br>    constructor(option){<br>      super(option)     //这个相当于 Huamn.call(this,option) 而且super一定在this前面调用<br>      this.name = option.name<br>      this.gender = option.gender<br>    }<br>  }</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/03/18/对象/" data-id="cjnwlj4it00048norsha034xw" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-一些迷思" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/19/一些迷思/" class="article-date">
+  <time datetime="2018-01-19T08:30:15.000Z" itemprop="datePublished">2018-01-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/19/一些迷思/">一些迷思</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="代办事项"><a href="#代办事项" class="headerlink" title="代办事项"></a>代办事项</h2><p>  1.使用深度Linus 或者另一台电脑更新维护Hexo。<br>  2.更换一个主题，并了解主题使用方法。<br>  3.还需要进一步了解更多Hexo的相关知识，进一步完善博客，现在还是有点简陋。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/01/19/一些迷思/" data-id="cjnwlj4in00018nordji1vcv7" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-开博大吉" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/18/开博大吉/" class="article-date">
+  <time datetime="2018-01-18T14:03:52.000Z" itemprop="datePublished">2018-01-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/18/开博大吉/">开博大吉</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="使用Hexo搭建博客"><a href="#使用Hexo搭建博客" class="headerlink" title="使用Hexo搭建博客"></a>使用Hexo搭建博客</h1><h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="第一步：搭建环境"><a href="#第一步：搭建环境" class="headerlink" title="第一步：搭建环境"></a>第一步：搭建环境</h3><p>  首先要做的是搭建好环境，因为在安装Hexo之前，需要先安装和配置好Git bash和Node.js。</p>
+<h3 id="第二步：使用Hexo和Github搭建博客"><a href="#第二步：使用Hexo和Github搭建博客" class="headerlink" title="第二步：使用Hexo和Github搭建博客"></a>第二步：使用Hexo和Github搭建博客</h3><p>  1.把环境搭建好了以后，需要首先在Github上创建一个空的仓库。然后进入一个安全的目录，(例如Desktop)使用命令行输入nmp install -g hexo-cli,安装Hexo。<br>  2.待安装完成后，在命令行输入Hexo init xxx，这时在当前目录下新建了一个xxx的目录。<br>  3.在命令行输入npm i，然后Hexo new xxx，这时命令行工具会显示一个md文件路径。<br>  4.使用start 命令可以编辑这个md文件，编辑这个文件的内容就是博客文章的内容。<br>  5.编辑网站配置。在命令行输入start _config.yml，修改6行的title，第9行的author,编辑最后一行type为type: git。最后在type下一行另起一行与type平齐，输入repo: git@github.com:zyfneverforget/zyfneverforget.github.io.git。<br>  6.进入GitHub对应的仓库，打开GitHub Pages功能，如果已经打开了，就直接点击预览链接就可以看到博客啦。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/01/18/开博大吉/" data-id="cjnwlj4ji000c8norb478gyph" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/">&laquo; zurück</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/10/31/Promise/">Promise</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/31/配置webpack-3/">配置webpack 3</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/22/会动的简历/">会动的简历</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/16/添加留言功能/">添加留言功能</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/12/合集/">合集</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 ZYF<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
