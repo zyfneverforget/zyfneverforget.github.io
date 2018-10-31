@@ -91,7 +91,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/31/Promise/" data-id="cjnwm3ebm0001ahorkaf9r14w" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/10/31/Promise/" data-id="cjnwmadf70002rcorq4ztwk7k" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -132,7 +132,53 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/30/Cookie/" data-id="cjnwm3ebf0000ahoree0mxfyy" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/08/30/Cookie/" data-id="cjnwmadez0000rcor3dxkxym2" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Canvas画板" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/04/Canvas画板/" class="article-date">
+  <time datetime="2018-06-04T02:42:58.000Z" itemprop="datePublished">2018-06-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/04/Canvas画板/">Canvas画板</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="使用canvas实现一个画板"><a href="#使用canvas实现一个画板" class="headerlink" title="使用canvas实现一个画板"></a>使用canvas实现一个画板</h2><p>canvas的基本用法<br>首先在HTML<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;canvas id=&quot;canvas&quot; width=&quot;150&quot; height=&quot;150&quot;&gt;&lt;/canvas&gt;</span><br></pre></td></tr></table></figure></p>
+<p>不要使用CSS来试图控制canvas的宽高。<br>基本用法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var canvas = document.getElementById(&apos;canvas&apos;);</span><br><span class="line">var ctx = canvas.getContext(&apos;2d&apos;);</span><br><span class="line">//接下来画个矩形</span><br><span class="line"></span><br><span class="line">ctx.fillStyle = &quot;rgb(200,0,0)&quot;;  //填充的颜色</span><br><span class="line">ctx.fillRect (10, 10, 55, 50);  //准确来说是填充一个矩形</span><br><span class="line">``</span><br><span class="line">fillRect(x，y，width,height)接受四个参数：x与y指定了在canvas画布上所绘制的矩形的左上角（相对于原点）的坐标。width和height设置矩形的尺寸。</span><br><span class="line">strokeRect(x, y, width, height) 绘制一个矩形的边框</span><br><span class="line">clearRect(x, y, width, height) 清除一个矩形</span><br><span class="line"></span><br><span class="line">绘制一个填充三角形</span><br></pre></td></tr></table></figure></p>
+<p>ctx.beginPath(); //必须<br>ctx.moveTo(75, 50);   //起点<br>ctx.lineTo(100, 75);  //第二个点<br>ctx.lineTo(100, 25);    //终点<br>ctx.fill();     //闭合<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">绘制一个描边三角形</span><br></pre></td></tr></table></figure></p>
+<p> ctx.beginPath();<br> ctx.moveTo(125,125);<br> ctx.lineTo(125,45);<br> ctx.lineTo(45,125);<br> ctx.closePath();  //闭合<br> ctx.stroke();<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">moveTo(x, y)将笔触移动到指定的坐标x以及y上。</span><br><span class="line">lineTo(x, y)绘制一条从当前位置到指定x以及y位置的直线。</span><br><span class="line">画圆形或圆弧</span><br><span class="line">arc(x, y, radius, startAngle, endAngle, anticlockwise)画一个以（x,y）为圆心的以radius为半径的圆弧（圆），从startAngle开始到endAngle结束，按照anticlockwise给定的方向（默认为顺时针）来生成。</span><br><span class="line">这里详细介绍一下arc方法，该方法有六个参数：x,y为绘制圆弧所在圆上的圆心坐标。radius为半径。startAngle以及endAngle参数用弧度定义了开始以及结束的弧度。这些都是以x轴为基准。参数anticlockwise为一个布尔值。为true时，是逆时针方向，否则顺时针方向。</span><br><span class="line">注意：arc()函数中表示角的单位是弧度，不是角度。角度与弧度的js表达式: 弧度=(Math.PI/180)*角度。</span><br></pre></td></tr></table></figure></p>
+<p>ctx.beginPath();<br> var radius = 20; // 圆弧半径<br> var startAngle = 0; // 开始点<br> var endAngle = Math.PI*2; // 结束点<br> var anticlockwise = false；<br> var x = 25；<br> var y = 25；<br> ctx.arc(x, y, radius, startAngle, endAngle, anticlockwise);<br> ctx.fill(); //或者使用ctx.stroke() 描边<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">实现思路</span><br><span class="line">监听三个鼠标事件，分别是onmousedown，onmousemove，onmouseup。当用户按下鼠标，通过canvas的API画下一个点</span><br></pre></td></tr></table></figure></p>
+<p>canvas.onmousedown = function(event){<br>    var x = event.clientX<br>    var y = event.clientY   //获取用户按下鼠标是的坐标<br>    ctx.beginPath();<br>    ctx.arc(x,y,3,0,Math.PI*2);   //画一个半径为3像素的圆<br>    ctx.fill();<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">监听mousemove事件，但是不画圆，画线。划线需要两个点，当用户按下鼠标的是起点，第二个点是当前瞬间mousemove的点。所以需要一个变量记录last point</span><br></pre></td></tr></table></figure></p>
+<p>var lastPoint = {x: 0,y:0}<br>canvas.onmousedown = function(event){<br>    var x = event.clientX<br>    var y = event.clientY   //获取用户按下鼠标是的坐标<br>    lastPoint = {x:x,y:y}<br>    ctx.beginPath();<br>    ctx.arc(x,y,3,0,Math.PI*2);   //画一个半径为3像素的圆<br>    ctx.fill();<br>}<br>canvas.onmousedown = function(event){<br>    var x = event.clientX<br>    var y = event.clientY<br>    var newPoint = {x: x,y: y}<br>    ctx.beginPath();<br>    ctx.lineWidth = 6;  //线的宽度<br>    ctx.moveTo(lastPoint.x,lastPoint.y);<br>    ctx.lineTo(newPoint.x,newPoint.y);<br>    ctx.closePath();<br>    ctx.stroke();<br>    lastPoint = newPoint //importent<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">实际上还需要一个变量来记录当前的状态，来记录用户是否按下鼠标或者松开鼠标，否则mousemove一直在触发，一直在画线。</span><br></pre></td></tr></table></figure></p>
+<p>var canvas = document.getElementById(‘canvas’);<br>var eraser = document.getElementById(‘eraser’);<br>var ctx = canvas.getContext(‘2d’);<br>getSize();<br>window.onresize = function() {<br>    getSize();<br>}<br>function getSize () {<br>    var pageWidth = document.documentElement.clientWidth<br>    var pageHeight = document.documentElement.clientHeight<br>    canvas.width = pageWidth<br>    canvas.height = pageHeight<br>}<br>实现一个简易画板<br>功能包括此下载，删除，橡皮擦，不同颜色的画笔。<br>下载功能代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">download.onclick = function () &#123;</span><br><span class="line">	var image = canvas.toDataURL(&quot;image/png&quot;).replace(&quot;image/png&quot;, &quot;image/octet-stream&quot;)</span><br><span class="line">	window.location.href=image;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>特性检测<br>画板为了实现在PC端移动端兼容，监听的事件是不一样的，所以需要判断一下当前用户的设备是否支持触摸。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">document.body.ontouchstart !== undefined</span><br></pre></td></tr></table></figure></p>
+<p>当ontouchstart事件为undefined是表明当前设备不支持触摸，我们监听的是mouse事件。<br>另外为了兼容移动端的设备，css加上meta vp ，保证页面不会被缩放。<br>当用户设备支持touch事件，监听的是ontouchstart，ontouchmove，ontouchend事件，这几个事件也鼠标事件稍微有一些不一样。<br>当触发鼠标事件的时候，我们通过clientX和clientY获取到坐标信息，touch事件获取用户坐标是touches[0].clientX和touches[0].clientY。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/06/04/Canvas画板/" data-id="cjnwmadf40001rcorbotxqeg1" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -182,7 +228,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/31/配置webpack-3/" data-id="cjnwm3ecg000dahornahub8mn" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/05/31/配置webpack-3/" data-id="cjnwmadfp000ercorq3qbml0m" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -227,7 +273,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/22/会动的简历/" data-id="cjnwm3ec1000bahorrvpjjulf" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/05/22/会动的简历/" data-id="cjnwmadfb0005rcorxd96rt9x" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -268,7 +314,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/16/添加留言功能/" data-id="cjnwm3ebz000aahorc5oz4l40" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/05/16/添加留言功能/" data-id="cjnwmadfl000crcoryyoppesj" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -308,7 +354,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/12/合集/" data-id="cjnwm3ebr0004ahor30wgptyj" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/05/12/合集/" data-id="cjnwmadfc0006rcorv7u7hytl" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -348,7 +394,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/11/与文字同宽进度条/" data-id="cjnwm3ebq0003ahorep5fnh4l" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/05/11/与文字同宽进度条/" data-id="cjnwmadfa0004rcorimp1x51a" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -393,7 +439,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/11/简单一行两列/" data-id="cjnwm3ec3000cahor5qvycz8n" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/05/11/简单一行两列/" data-id="cjnwmadfn000drcor4vccnh2k" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -442,46 +488,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/09/导航-banner-大卡片/" data-id="cjnwm3ebu0007ahorek9mzjw4" class="article-share-link">Teilen</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-导航条" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/05/08/导航条/" class="article-date">
-  <time datetime="2018-05-08T07:22:44.000Z" itemprop="datePublished">2018-05-08</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/08/导航条/">简单的导航条</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>制作一个简单导航条如下图效果<br><img src="https://i.loli.net/2018/05/08/5af1510aaa74e.png" alt="Alt text"><br>HTML代码结构<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;topNavBar&quot; class=&quot;topNavBar&quot;&gt;</span><br><span class="line">	&lt;a href=&quot;#&quot;&gt;&lt;span class=&quot;rs&quot;&gt;RS&lt;/span&gt;&lt;span class=&quot;card&quot;&gt;card&lt;/span&gt;&lt;/a&gt;</span><br><span class="line">	&lt;nav class=&quot;menue&quot;&gt;</span><br><span class="line">		&lt;ul class=&quot;clearfix&quot;&gt;</span><br><span class="line">			&lt;li &gt;&lt;a href=&quot;#siteAbout&quot;&gt;关于&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">			&lt;li &gt;&lt;a href=&quot;#siteSkill&quot;&gt;技能&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">			&lt;li &gt;&lt;a href=&quot;#siteWorks&quot;&gt;作品&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">			&lt;li class=&quot;menuTrigger&quot;&gt;&lt;a href=&quot;#&quot;&gt;博客&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">			&lt;li class=&quot;menuTrigger&quot;&gt;&lt;a href=&quot;#&quot;&gt;日历&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">			&lt;li class=&quot;menuTrigger&quot;&gt;&lt;a href=&quot;#&quot;&gt;联系方式&lt;/a&gt;</span><br><span class="line">			&lt;li class=&quot;menuTrigger&quot;&gt;&lt;a href=&quot;#&quot;&gt;其它&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">		&lt;/ul&gt;   </span><br><span class="line">	&lt;/nav&gt;     </span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
-<p>基本结构是一个大的DIV，包含两个子元素。nav标签是导航条的主体，里面包含一个无序的列表，但是一旦列表的样式都是竖直排列，为了达到水平排列的效果，在ul标签的子元素li标签的css样式使用了float: left，使得无序列表水平排列，还要在ul标签上加上clearfix类。<br>clearfix类的css代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.clearfix::after&#123;</span><br><span class="line">    content: &apos;&apos;;</span><br><span class="line">    display: block;</span><br><span class="line">    clear: both;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></p>
-<p>最后一步是使得a标签和nav标签一左一右水平排列，方法是在nav标签加上float: left，在父元素加上clearfix类，这个是一个固定的套路。<br>注意事项以及细节处理：<br>导航栏左右两侧的两个子元素的高度有可能是不一致的，为了两边元素能够中线对齐（大概），最好把两边元素的高度设置为一样。但是最好不要直接设置height属性，容易引起BUG，最好是使用line-height加上上下padding的方法实现两边子元素高度一致。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/08/导航条/" data-id="cjnwm3ebw0008ahor8wue913q" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/05/09/导航-banner-大卡片/" data-id="cjnwmadfg0009rcora3ckyoj5" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -514,7 +521,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archiv</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li></ul>
     </div>
   </div>
 
@@ -535,15 +542,15 @@
           </li>
         
           <li>
+            <a href="/2018/06/04/Canvas画板/">Canvas画板</a>
+          </li>
+        
+          <li>
             <a href="/2018/05/31/配置webpack-3/">配置webpack 3</a>
           </li>
         
           <li>
             <a href="/2018/05/22/会动的简历/">会动的简历</a>
-          </li>
-        
-          <li>
-            <a href="/2018/05/16/添加留言功能/">添加留言功能</a>
           </li>
         
       </ul>

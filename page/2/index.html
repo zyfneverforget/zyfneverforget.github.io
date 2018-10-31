@@ -61,6 +61,45 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-导航条" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/08/导航条/" class="article-date">
+  <time datetime="2018-05-08T07:22:44.000Z" itemprop="datePublished">2018-05-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/08/导航条/">简单的导航条</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>制作一个简单导航条如下图效果<br><img src="https://i.loli.net/2018/05/08/5af1510aaa74e.png" alt="Alt text"><br>HTML代码结构<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;topNavBar&quot; class=&quot;topNavBar&quot;&gt;</span><br><span class="line">	&lt;a href=&quot;#&quot;&gt;&lt;span class=&quot;rs&quot;&gt;RS&lt;/span&gt;&lt;span class=&quot;card&quot;&gt;card&lt;/span&gt;&lt;/a&gt;</span><br><span class="line">	&lt;nav class=&quot;menue&quot;&gt;</span><br><span class="line">		&lt;ul class=&quot;clearfix&quot;&gt;</span><br><span class="line">			&lt;li &gt;&lt;a href=&quot;#siteAbout&quot;&gt;关于&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">			&lt;li &gt;&lt;a href=&quot;#siteSkill&quot;&gt;技能&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">			&lt;li &gt;&lt;a href=&quot;#siteWorks&quot;&gt;作品&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">			&lt;li class=&quot;menuTrigger&quot;&gt;&lt;a href=&quot;#&quot;&gt;博客&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">			&lt;li class=&quot;menuTrigger&quot;&gt;&lt;a href=&quot;#&quot;&gt;日历&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">			&lt;li class=&quot;menuTrigger&quot;&gt;&lt;a href=&quot;#&quot;&gt;联系方式&lt;/a&gt;</span><br><span class="line">			&lt;li class=&quot;menuTrigger&quot;&gt;&lt;a href=&quot;#&quot;&gt;其它&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">		&lt;/ul&gt;   </span><br><span class="line">	&lt;/nav&gt;     </span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<p>基本结构是一个大的DIV，包含两个子元素。nav标签是导航条的主体，里面包含一个无序的列表，但是一旦列表的样式都是竖直排列，为了达到水平排列的效果，在ul标签的子元素li标签的css样式使用了float: left，使得无序列表水平排列，还要在ul标签上加上clearfix类。<br>clearfix类的css代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.clearfix::after&#123;</span><br><span class="line">    content: &apos;&apos;;</span><br><span class="line">    display: block;</span><br><span class="line">    clear: both;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></p>
+<p>最后一步是使得a标签和nav标签一左一右水平排列，方法是在nav标签加上float: left，在父元素加上clearfix类，这个是一个固定的套路。<br>注意事项以及细节处理：<br>导航栏左右两侧的两个子元素的高度有可能是不一致的，为了两边元素能够中线对齐（大概），最好把两边元素的高度设置为一样。但是最好不要直接设置height属性，容易引起BUG，最好是使用line-height加上上下padding的方法实现两边子元素高度一致。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/05/08/导航条/" data-id="cjnwmadfh000arcor3h0btwt6" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-实现jQuery思路" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/04/16/实现jQuery思路/" class="article-date">
@@ -90,7 +129,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/04/16/实现jQuery思路/" data-id="cjnwm3ebs0005ahorzq0m934n" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/04/16/实现jQuery思路/" data-id="cjnwmadfd0007rcorjwu9j798" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -144,7 +183,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/18/对象/" data-id="cjnwm3ebt0006ahorrhkb1zzs" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/03/18/对象/" data-id="cjnwmadfe0008rcorufq0b3f1" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -181,7 +220,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/19/一些迷思/" data-id="cjnwm3ebo0002ahorl7jonh7z" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/01/19/一些迷思/" data-id="cjnwmadf80003rcor302k7ir8" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -219,7 +258,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/18/开博大吉/" data-id="cjnwm3ebx0009ahorzqxvvls0" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/01/18/开博大吉/" data-id="cjnwmadfj000brcor0ppl3tml" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -252,7 +291,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archiv</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li></ul>
     </div>
   </div>
 
@@ -273,15 +312,15 @@
           </li>
         
           <li>
+            <a href="/2018/06/04/Canvas画板/">Canvas画板</a>
+          </li>
+        
+          <li>
             <a href="/2018/05/31/配置webpack-3/">配置webpack 3</a>
           </li>
         
           <li>
             <a href="/2018/05/22/会动的简历/">会动的简历</a>
-          </li>
-        
-          <li>
-            <a href="/2018/05/16/添加留言功能/">添加留言功能</a>
           </li>
         
       </ul>
