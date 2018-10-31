@@ -94,15 +94,15 @@
 <h3 id="map"><a href="#map" class="headerlink" title="map"></a>map</h3><p>map方法将数组的所有成员依次传入参数函数，然后把每一次的执行结果组成一个新数组返回。参数函数可以接受三个函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[1,2,3].map(function(item,index,array)&#123;</span><br><span class="line">	// some code</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
 <p>map方法还可以接受第二个参数，用来绑定回调函数内部的this变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var arr = [4,5,6,7]</span><br><span class="line">[1,2,3].map(function(item,index,array)&#123;</span><br><span class="line">	return this[item]</span><br><span class="line">&#125;,arr)  //结果返回数组[5,6,7]</span><br></pre></td></tr></table></figure></p>
 <h3 id="forEach"><a href="#forEach" class="headerlink" title="forEach"></a>forEach</h3><p>基本和map一样，不同的是没有返回值。</p>
-<h3 id="reduce"><a href="#reduce" class="headerlink" title="reduce"></a>reduce</h3><p>reduce方法第一个参数是一个函数，函数接受四个参数；第一个为累积变量，默认为数组的第一个成员；第二个当前变量，默认为数组的第二个成员；第三个当前位置，相当于Index。如果要对累积变量指定初值，可以把它放在reduce的第二个参数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[1, 2, 3, 4, 5].reduce(function (result,value，index) &#123;</span><br><span class="line">  return result + value;</span><br><span class="line">&#125;, 10); //相当于result = 10，此时value取值从数组第一项开始</span><br><span class="line">//  结果为25</span><br></pre></td></tr></table></figure></p>
-<h3 id="every"><a href="#every" class="headerlink" title="every"></a>every</h3><p>every方法是所有成员的返回值都是true，整个every方法才返回true，否则返回false。参数函数的参数跟map一样<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var arr = [1, 2, 3, 4, 5];</span><br><span class="line">arr.every(function (value, index, arr) &#123;</span><br><span class="line">  return elem &gt;= 3;</span><br><span class="line">&#125;);</span><br><span class="line">// false</span><br></pre></td></tr></table></figure></p>
+<h3 id="reduce"><a href="#reduce" class="headerlink" title="reduce"></a>reduce</h3><p>reduce方法第一个参数是一个函数，函数接受四个参数；第一个为累积变量，默认为数组的第一个成员；第二个当前变量，默认为数组的第二个成员；第三个当前位置，相当于Index。如果要对累积变量指定初值，可以把它放在reduce的第二个参数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[1, 2, 3, 4, 5].reduce(function(result,val,index)&#123;</span><br><span class="line">	return result + val</span><br><span class="line">&#125;,10)  //相当于result = 10，此时value取值从数组第一项开始</span><br><span class="line">//  结果为25</span><br></pre></td></tr></table></figure></p>
+<h3 id="every"><a href="#every" class="headerlink" title="every"></a>every</h3><p>every方法是所有成员的返回值都是true，整个every方法才返回true，否则返回false。参数函数的参数跟map一样<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var arr = [1, 2, 3, 4, 5];</span><br><span class="line">arr.every(function (value, index, arr) &#123;</span><br><span class="line">  return value &gt;= 3;</span><br><span class="line">&#125;)  // false</span><br></pre></td></tr></table></figure></p>
 <h2 id="es6-部分新增数组API"><a href="#es6-部分新增数组API" class="headerlink" title="es6 部分新增数组API"></a>es6 部分新增数组API</h2><h3 id="find"><a href="#find" class="headerlink" title="find"></a>find</h3><p>数组实例的find方法，用于找出第一个符合条件的数组成员。注意是第一个！找到一个就返回，不再找下一个！如果没有符合条件的返回undefined ！<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[1, 5, 10, 15].find(function(value, index, arr) &#123;</span><br><span class="line">  return value &gt; 9;</span><br><span class="line">&#125;)  // 10</span><br></pre></td></tr></table></figure></p>
 <h3 id="findIndex"><a href="#findIndex" class="headerlink" title="findIndex"></a>findIndex</h3><p>数组实例的findIndex方法的用法与find方法非常类似，返回第一个符合条件的数组成员的位置，如果所有成员都不符合条件，则返回-1。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[1, 5, 6, 7].findIndex(function(value, index, arr) &#123;</span><br><span class="line">  return value &gt; 9;</span><br><span class="line">&#125;)  // -1</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/31/数组/" data-id="cjnx6jctx000bzkorwqthmyj8" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/10/31/数组/" data-id="cjnx72dhs000bmyor47flg9mb" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -142,7 +142,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/31/Promise/" data-id="cjnx6jctq0006zkor3sz8wp3s" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/10/31/Promise/" data-id="cjnx72dhd0002myor0rx2b722" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -183,7 +183,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/30/Cookie/" data-id="cjnx6jcti0001zkork2uknqm4" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/08/30/Cookie/" data-id="cjnx72dha0001myorbtkt4i0c" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -230,7 +230,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/18/对象/" data-id="cjnx6jctt0008zkoriwdp6na2" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/08/18/对象/" data-id="cjnx72dho0008myor6sps90p7" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -276,7 +276,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/04/Canvas画板/" data-id="cjnx6jctc0000zkoru9y28b9f" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/06/04/Canvas画板/" data-id="cjnx72dh50000myorljsgep3j" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -326,7 +326,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/31/配置webpack-3/" data-id="cjnx6jcu2000fzkorp5pc4y2i" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/05/31/配置webpack-3/" data-id="cjnx72dhy000fmyorrs2el8kd" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -371,7 +371,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/22/会动的简历/" data-id="cjnx6jctn0004zkorfwj11aib" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/05/22/会动的简历/" data-id="cjnx72dhi0005myor7ui3faoi" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -412,7 +412,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/16/添加留言功能/" data-id="cjnx6jctz000dzkorcnfdp69l" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/05/16/添加留言功能/" data-id="cjnx72dht000cmyor50pmb194" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -452,7 +452,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/12/合集/" data-id="cjnx6jcto0005zkorsrt8i0nr" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/05/12/合集/" data-id="cjnx72dhk0006myorfkzdrofz" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -492,7 +492,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/11/与文字同宽进度条/" data-id="cjnx6jctm0003zkor4u194z0q" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/05/11/与文字同宽进度条/" data-id="cjnx72dhg0004myort8cnofh5" class="article-share-link">Teilen</a>
       
       
     </footer>
