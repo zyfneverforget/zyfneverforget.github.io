@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Cookie | 一个简单的小博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Cookie Session LocalstorageCookie 和 Session 的区别因为HTTP是无状态的协议，当需要记录用户的信息的时候可以通过Cookie实现。Cookie是服务器通过 Set-Cookie 头给客户端一串字符串，这个就是Cookie，客户端每次访问相同域名的网页时，必须带上这段字符串。而且Cookie保存对应用户的相关信息。客户端要在一段时间内保存这个Cookie。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Cookie">
+<meta property="og:url" content="http://yoursite.com/2018/08/30/Cookie/index.html">
+<meta property="og:site_name" content="一个简单的小博客">
+<meta property="og:description" content="Cookie Session LocalstorageCookie 和 Session 的区别因为HTTP是无状态的协议，当需要记录用户的信息的时候可以通过Cookie实现。Cookie是服务器通过 Set-Cookie 头给客户端一串字符串，这个就是Cookie，客户端每次访问相同域名的网页时，必须带上这段字符串。而且Cookie保存对应用户的相关信息。客户端要在一段时间内保存这个Cookie。">
+<meta property="og:updated_time" content="2018-10-31T03:38:40.081Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Cookie">
+<meta name="twitter:description" content="Cookie Session LocalstorageCookie 和 Session 的区别因为HTTP是无状态的协议，当需要记录用户的信息的时候可以通过Cookie实现。Cookie是服务器通过 Set-Cookie 头给客户端一串字符串，这个就是Cookie，客户端每次访问相同域名的网页时，必须带上这段字符串。而且Cookie保存对应用户的相关信息。客户端要在一段时间内保存这个Cookie。">
+  
+    <link rel="alternate" href="/atom.xml" title="一个简单的小博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">一个简单的小博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Cookie" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/08/30/Cookie/" class="article-date">
+  <time datetime="2018-08-30T01:36:53.000Z" itemprop="datePublished">2018-08-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Cookie
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Cookie-Session-Localstorage"><a href="#Cookie-Session-Localstorage" class="headerlink" title="Cookie Session Localstorage"></a>Cookie Session Localstorage</h1><h2 id="Cookie-和-Session-的区别"><a href="#Cookie-和-Session-的区别" class="headerlink" title="Cookie 和 Session 的区别"></a>Cookie 和 Session 的区别</h2><p>因为HTTP是无状态的协议，当需要记录用户的信息的时候可以通过Cookie实现。<br>Cookie是服务器通过 Set-Cookie 头给客户端一串字符串，这个就是Cookie，客户端每次访问相同域名的网页时，必须带上这段字符串。而且Cookie保存对应用户的相关信息。客户端要在一段时间内保存这个Cookie。但是Cookie不够安全，用户能够直接修改Cookie的信息。为了解决安全的问题，我们引入Session。<br>Session是将 SessionID（随机数）通过 Cookie 发给客户端，客户端访问服务器时，服务器读取 SessionID，服务器有一块内存保存了所有 session，通过 SessionID 我们可以得到对应用户的隐私信息。因为是SessionID随机数，用户就无法修改得到想要的信息。<br>node.js部分代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let sessionId = Math.random() * 100000</span><br><span class="line">response.setHeader(&apos;Set-Cookie&apos;, `sessionId=$&#123;sessionId&#125;`)</span><br></pre></td></tr></table></figure></p>
+<h2 id="Cookie-和-LocalStorage-的区别"><a href="#Cookie-和-LocalStorage-的区别" class="headerlink" title="Cookie 和 LocalStorage 的区别"></a>Cookie 和 LocalStorage 的区别</h2><p>Cookie 是HTTP 协议里的内容。LocalStrorage与HTTP协议没有关系，只是HTML5新提供的一个API所以HTTP请求或响应都 不会带上 LocalStorage 的值。还有一点是Cookie是会过期的，但是LocalStorage 永久有效，除非用户清理缓存。<br>而且跟Cookie一样，只有相同域名的页面才能读取LocalStorage，</p>
+<p>##LocalStorage 和 SessionStorage 的区别<br>LocalStorahe和SessiomStrorage区别是LoalStroage里的数据信息是一直存在的，只要用户不删除缓存，就像我们存在电脑硬盘上存储的数据一样。但是SessionStroage不一样，当浏览器或者页面关闭了SessionStroage就会被清空。</p>
+<h2 id="Cookie-如何设置过期时间？如何删除-Cookie？"><a href="#Cookie-如何设置过期时间？如何删除-Cookie？" class="headerlink" title="Cookie 如何设置过期时间？如何删除 Cookie？"></a>Cookie 如何设置过期时间？如何删除 Cookie？</h2><p>有两种方法一种是在服务器段写上<code>Set-Cookie: id=xxx; Expires=Wed, 21 Oct 2018 07:28:00 GMT</code>代码内Expires的值就是这个Cookie的过期时间，需要注意的是时间的格式是格林威治时间。<br>还有一种是<code>Set-Cookie: id=xxx; Max-Age=23456787</code>这个设置的是在 cookie 失效之前需要经过的秒数。接受一位或多位非零（1-9）数字。<br>如果在浏览器上删除Cookie，可以直接在浏览器的设置选项来进行操作。如果是使用JS来清楚Cookie的话可以通过API<br>docCookies.removeItem(name[, path],domain)来清除Cookie。</p>
+<h2 id="Cache-Control-max-age-1000-缓存-与-ETag-的「缓存」有什么区别？"><a href="#Cache-Control-max-age-1000-缓存-与-ETag-的「缓存」有什么区别？" class="headerlink" title="Cache-Control: max-age=1000 缓存 与 ETag 的「缓存」有什么区别？"></a>Cache-Control: max-age=1000 缓存 与 ETag 的「缓存」有什么区别？</h2><p>Cache-Control可以用来控制缓存，当设置了Cache-Control: max-age=1000，等于设置缓存存储的最大周期为1000秒，只要还在这个时间内，页面在请求相同URL的资源，浏览器就不会发送请求，直接读取上一次请求响应的缓存。当需要更新缓存，可以更新文件的查询参数，这样使得URL发生改变，更新新的文件。<br>当我们使用ETag来进行缓存控制，一般做法是比较的是两次请求返回的ETag的MD5的值，如果这两次请求返回的ETag的值相同，则不下载。但是浏览器还是会发请求的，服务器也有响应，但是响应的第四部分是空的。<br>两种最主要的区别就是Cache-Control缓存存储的有效周期内不会发请求相同URL的资源不会发请求，但是使用ETag浏览器还是会发请求。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/08/30/Cookie/" data-id="cjnwm3ebf0000ahoree0mxfyy" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/10/31/Promise/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          Promise
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/05/31/配置webpack-3/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">配置webpack 3</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/10/31/Promise/">Promise</a>
+          </li>
+        
+          <li>
+            <a href="/2018/08/30/Cookie/">Cookie</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/31/配置webpack-3/">配置webpack 3</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/22/会动的简历/">会动的简历</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/16/添加留言功能/">添加留言功能</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 ZYF<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

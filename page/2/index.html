@@ -61,6 +61,45 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-实现jQuery思路" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/04/16/实现jQuery思路/" class="article-date">
+  <time datetime="2018-04-16T06:17:15.000Z" itemprop="datePublished">2018-04-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/16/实现jQuery思路/">实现类似jQuery的函数思路</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="实现一个-jQuery-的-API"><a href="#实现一个-jQuery-的-API" class="headerlink" title="实现一个 jQuery 的 API"></a>实现一个 jQuery 的 API</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">window.jQuery = function(selector)&#123; </span><br><span class="line">  let nodes = &#123;length: 0&#125;</span><br><span class="line">  let a = document.querySelectorAll(selector)</span><br><span class="line">  for(let i=0;i&lt;a.length;i++)&#123;</span><br><span class="line">    nodes[nodes.length]=a[i]</span><br><span class="line">    nodes.length =nodes.length+ 1</span><br><span class="line">  &#125;</span><br><span class="line">  nodes.addClass = function(className)&#123;</span><br><span class="line">    for(let i=0;i&lt;nodes.length;i++)&#123;</span><br><span class="line">      nodes[i].classList.add(className)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  nodes.setText = function (text)&#123;</span><br><span class="line">    for(let i=0;i&lt;nodes.length;i++)&#123;</span><br><span class="line">      nodes[i].textContent = text</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  return nodes</span><br><span class="line">&#125;</span><br><span class="line">window.$ = jQuery</span><br><span class="line">$div.addClass(&apos;red&apos;) // 可将所有 div 的 class 添加一个 red</span><br><span class="line">$div.setText(&apos;hi&apos;) // 可将所有 div 的 textContent 变为 hi</span><br></pre></td></tr></table></figure>
+<p>以上面是代码。</p>
+<h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>jQuery是目前使用最广泛的javascript函数库。简单的理解可以说jQuery是一个函数，接受一个节点或者选择器，返回一个对象，和对象可用的新的API。<br>首先为了方便使用，需要给jQuery一个命名空间，所以用全局window.jQuery存放jQuery函数。<br>函数接受一个节点或者选择器，通过节点或选择器获取到一个或多个对象。实现的方法先生成一个新的对象，接着通过DOM的 API document.querySelectorAll，把得到的值是遍历，写入新建的对象。然后写一个方法操作这个对象，如上面的代码addClass，目的是接受一个 classNmae，可将所有 div 的 class 添加一个 red 。方法并不复杂，遍历这个伪数组，使用 DOM 的 API.classList.add(className)为每个元素加上 classNmae 便可实现。第二个方法实现的思路也是类似的。最后jQuery函数返回一个新的对象，和新的API。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/04/16/实现jQuery思路/" data-id="cjnwm3ebs0005ahorzq0m934n" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-对象" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/03/18/对象/" class="article-date">
@@ -105,7 +144,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/18/对象/" data-id="cjnwlrn0l0006qwor0uhds6jr" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/03/18/对象/" data-id="cjnwm3ebt0006ahorrhkb1zzs" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -142,7 +181,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/19/一些迷思/" data-id="cjnwlrn0d0001qwor4nmffoz0" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/01/19/一些迷思/" data-id="cjnwm3ebo0002ahorl7jonh7z" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -180,7 +219,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/18/开博大吉/" data-id="cjnwlrn0q000aqworh3vfug3c" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/01/18/开博大吉/" data-id="cjnwm3ebx0009ahorzqxvvls0" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -213,7 +252,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archiv</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li></ul>
     </div>
   </div>
 
@@ -230,6 +269,10 @@
           </li>
         
           <li>
+            <a href="/2018/08/30/Cookie/">Cookie</a>
+          </li>
+        
+          <li>
             <a href="/2018/05/31/配置webpack-3/">配置webpack 3</a>
           </li>
         
@@ -239,10 +282,6 @@
         
           <li>
             <a href="/2018/05/16/添加留言功能/">添加留言功能</a>
-          </li>
-        
-          <li>
-            <a href="/2018/05/12/合集/">合集</a>
           </li>
         
       </ul>
