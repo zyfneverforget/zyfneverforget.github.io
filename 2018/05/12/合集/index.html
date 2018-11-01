@@ -13,7 +13,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/05/12/合集/index.html">
 <meta property="og:site_name" content="一个简单的小博客">
 <meta property="og:description" content="琐碎css1.使用after实现下border1234567891011div:after&amp;#123;	content: &amp;apos;&amp;apos;;  display: block;	height: 2px;	border-radius: 2px;  background: red;  position: absolute;  top:100%;  left: 0;	width: 100%;&amp;#1">
-<meta property="og:updated_time" content="2018-05-15T13:52:31.435Z">
+<meta property="og:updated_time" content="2018-11-01T23:42:51.327Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="合集">
 <meta name="twitter:description" content="琐碎css1.使用after实现下border1234567891011div:after&amp;#123;	content: &amp;apos;&amp;apos;;  display: block;	height: 2px;	border-radius: 2px;  background: red;  position: absolute;  top:100%;  left: 0;	width: 100%;&amp;#1">
@@ -86,14 +86,14 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="琐碎css"><a href="#琐碎css" class="headerlink" title="琐碎css"></a>琐碎css</h2><p>1.使用after实现下border<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">div:after&#123;</span><br><span class="line">	content: &apos;&apos;;</span><br><span class="line">  display: block;</span><br><span class="line">	height: 2px;</span><br><span class="line">	border-radius: 2px;</span><br><span class="line">  background: red;</span><br><span class="line">  position: absolute;</span><br><span class="line">  top:100%;</span><br><span class="line">  left: 0;</span><br><span class="line">	width: 100%;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>一般便于定位会让afte元素r绝对定位，让其父元素相对定位。</p>
+<p>一般便于定位会让afte元素绝对定位，让其父元素相对定位。</p>
 <h2 id="原生JS-API"><a href="#原生JS-API" class="headerlink" title="原生JS API"></a>原生JS API</h2><p> elemnt.classList.add()<br> elment.classList.remove()<br> window.onscroll 用户滚动屏幕事件<br> window.scrollY  文档在垂直方向已滚动的像素值<br> elment.offsetTop 元素距离html顶部像素值<br> elemnt.onmouseenter 鼠标进入<br> elment.onmouseleave 鼠标离开<br> document.querySelectorAll() document选择器，返回符合条件的全部元素<br> preventDefault()      阻止默认事件</p>
 <h2 id="高亮用户正在浏览元素的一种方法"><a href="#高亮用户正在浏览元素的一种方法" class="headerlink" title="高亮用户正在浏览元素的一种方法"></a>高亮用户正在浏览元素的一种方法</h2><p> 基本思路首先需要监听用户的onscroll事件，在需要高亮的多个元素上插入相同的标记，用document.querySelectorAll(‘标记的内容’)获取到所有的元素然后取得元素距离html文档顶部的高度，elment.offsetTop，在与window.scrollY的值进行比较，差值最小的最可以认为是用户当前浏览的元素。最后为元素加上特定css样式<br>实现代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">window.onscroll = function () &#123;</span><br><span class="line">let specialTags = document.querySelectorAll(&apos;[data-x]&apos;) // 取得标记的元素</span><br><span class="line">	let minIndex = 0</span><br><span class="line">	for(let i=1;i&lt;specialTags.length;i++)&#123;</span><br><span class="line">		if(Math.abs(specialTags[i].offsetTop-window.scrollY) &lt; Math.abs(specialTags[minIndex].offsetTop-window.scrollY))&#123;   //比较与window.scrollY的距离</span><br><span class="line">			minIndex=i</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">  specialTags[minIndex].classList.add(&apos;highlight&apos;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/12/合集/" data-id="cjnx72dhk0006myorfkzdrofz" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/05/12/合集/" data-id="cjnz8lmaf0004rmor0zggqhnt" class="article-share-link">Teilen</a>
       
       
     </footer>
