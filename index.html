@@ -102,7 +102,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/31/数组/" data-id="cjnza38u2000cb9or0if8ierk" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/10/31/数组/" data-id="cjnzctuvt000cysor5gsjq15j" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -142,7 +142,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/31/Promise/" data-id="cjnza38tq0002b9oroizyoeou" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/10/31/Promise/" data-id="cjnzctuvh0002ysorn1y6e1j6" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -183,7 +183,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/30/Cookie/" data-id="cjnza38to0001b9orsetp0c4n" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/08/30/Cookie/" data-id="cjnzctuve0001ysorzqp3t16y" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -230,7 +230,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/18/对象/" data-id="cjnza38ty0008b9orbetotbkp" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/08/18/对象/" data-id="cjnzctuvp0008ysorc4wt1dbp" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -263,20 +263,22 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="使用canvas实现一个画板"><a href="#使用canvas实现一个画板" class="headerlink" title="使用canvas实现一个画板"></a>使用canvas实现一个画板</h2><p>canvas的基本用法<br>首先在HTML<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;canvas id=&quot;canvas&quot; width=&quot;150&quot; height=&quot;150&quot;&gt;&lt;/canvas&gt;</span><br></pre></td></tr></table></figure></p>
-<p>不要使用CSS来试图控制canvas的宽高。<br>基本用法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var canvas = document.getElementById(&apos;canvas&apos;);</span><br><span class="line">var ctx = canvas.getContext(&apos;2d&apos;);</span><br><span class="line">//接下来画个矩形</span><br><span class="line"></span><br><span class="line">ctx.fillStyle = &quot;rgb(200,0,0)&quot;;  //填充的颜色</span><br><span class="line">ctx.fillRect (10, 10, 55, 50);  //准确来说是填充一个矩形</span><br><span class="line">``</span><br><span class="line">fillRect(x，y，width,height)接受四个参数：x与y指定了在canvas画布上所绘制的矩形的左上角（相对于原点）的坐标。width和height设置矩形的尺寸。</span><br><span class="line">strokeRect(x, y, width, height) 绘制一个矩形的边框</span><br><span class="line">clearRect(x, y, width, height) 清除一个矩形</span><br><span class="line"></span><br><span class="line">绘制一个填充三角形</span><br></pre></td></tr></table></figure></p>
-<p>ctx.beginPath(); //必须<br>ctx.moveTo(75, 50);   //起点<br>ctx.lineTo(100, 75);  //第二个点<br>ctx.lineTo(100, 25);    //终点<br>ctx.fill();     //闭合<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">绘制一个描边三角形</span><br></pre></td></tr></table></figure></p>
-<p> ctx.beginPath();<br> ctx.moveTo(125,125);<br> ctx.lineTo(125,45);<br> ctx.lineTo(45,125);<br> ctx.closePath();  //闭合<br> ctx.stroke();<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">moveTo(x, y)将笔触移动到指定的坐标x以及y上。</span><br><span class="line">lineTo(x, y)绘制一条从当前位置到指定x以及y位置的直线。</span><br><span class="line">画圆形或圆弧</span><br><span class="line">arc(x, y, radius, startAngle, endAngle, anticlockwise)画一个以（x,y）为圆心的以radius为半径的圆弧（圆），从startAngle开始到endAngle结束，按照anticlockwise给定的方向（默认为顺时针）来生成。</span><br><span class="line">这里详细介绍一下arc方法，该方法有六个参数：x,y为绘制圆弧所在圆上的圆心坐标。radius为半径。startAngle以及endAngle参数用弧度定义了开始以及结束的弧度。这些都是以x轴为基准。参数anticlockwise为一个布尔值。为true时，是逆时针方向，否则顺时针方向。</span><br><span class="line">注意：arc()函数中表示角的单位是弧度，不是角度。角度与弧度的js表达式: 弧度=(Math.PI/180)*角度。</span><br></pre></td></tr></table></figure></p>
-<p>ctx.beginPath();<br> var radius = 20; // 圆弧半径<br> var startAngle = 0; // 开始点<br> var endAngle = Math.PI*2; // 结束点<br> var anticlockwise = false；<br> var x = 25；<br> var y = 25；<br> ctx.arc(x, y, radius, startAngle, endAngle, anticlockwise);<br> ctx.fill(); //或者使用ctx.stroke() 描边<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">实现思路</span><br><span class="line">监听三个鼠标事件，分别是onmousedown，onmousemove，onmouseup。当用户按下鼠标，通过canvas的API画下一个点</span><br></pre></td></tr></table></figure></p>
-<p>canvas.onmousedown = function(event){<br>    var x = event.clientX<br>    var y = event.clientY   //获取用户按下鼠标是的坐标<br>    ctx.beginPath();<br>    ctx.arc(x,y,3,0,Math.PI*2);   //画一个半径为3像素的圆<br>    ctx.fill();<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">监听mousemove事件，但是不画圆，画线。划线需要两个点，当用户按下鼠标的是起点，第二个点是当前瞬间mousemove的点。所以需要一个变量记录last point</span><br></pre></td></tr></table></figure></p>
-<p>var lastPoint = {x: 0,y:0}<br>canvas.onmousedown = function(event){<br>    var x = event.clientX<br>    var y = event.clientY   //获取用户按下鼠标是的坐标<br>    lastPoint = {x:x,y:y}<br>    ctx.beginPath();<br>    ctx.arc(x,y,3,0,Math.PI*2);   //画一个半径为3像素的圆<br>    ctx.fill();<br>}<br>canvas.onmousedown = function(event){<br>    var x = event.clientX<br>    var y = event.clientY<br>    var newPoint = {x: x,y: y}<br>    ctx.beginPath();<br>    ctx.lineWidth = 6;  //线的宽度<br>    ctx.moveTo(lastPoint.x,lastPoint.y);<br>    ctx.lineTo(newPoint.x,newPoint.y);<br>    ctx.closePath();<br>    ctx.stroke();<br>    lastPoint = newPoint //importent<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">实际上还需要一个变量来记录当前的状态，来记录用户是否按下鼠标或者松开鼠标，否则mousemove一直在触发，一直在画线。</span><br></pre></td></tr></table></figure></p>
-<p>var canvas = document.getElementById(‘canvas’);<br>var eraser = document.getElementById(‘eraser’);<br>var ctx = canvas.getContext(‘2d’);<br>getSize();<br>window.onresize = function() {<br>    getSize();<br>}<br>function getSize () {<br>    var pageWidth = document.documentElement.clientWidth<br>    var pageHeight = document.documentElement.clientHeight<br>    canvas.width = pageWidth<br>    canvas.height = pageHeight<br>}<br>实现一个简易画板<br>功能包括此下载，删除，橡皮擦，不同颜色的画笔。<br>下载功能代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">download.onclick = function () &#123;</span><br><span class="line">	var image = canvas.toDataURL(&quot;image/png&quot;).replace(&quot;image/png&quot;, &quot;image/octet-stream&quot;)</span><br><span class="line">	window.location.href=image;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>特性检测<br>画板为了实现在PC端移动端兼容，监听的事件是不一样的，所以需要判断一下当前用户的设备是否支持触摸。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">document.body.ontouchstart !== undefined</span><br></pre></td></tr></table></figure></p>
-<p>当ontouchstart事件为undefined是表明当前设备不支持触摸，我们监听的是mouse事件。<br>另外为了兼容移动端的设备，css加上meta vp ，保证页面不会被缩放。<br>当用户设备支持touch事件，监听的是ontouchstart，ontouchmove，ontouchend事件，这几个事件也鼠标事件稍微有一些不一样。<br>当触发鼠标事件的时候，我们通过clientX和clientY获取到坐标信息，touch事件获取用户坐标是touches[0].clientX和touches[0].clientY。</p>
+<p>不要使用CSS来试图控制canvas的宽高。<br>基本用法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var canvas = document.getElementById(&apos;canvas&apos;);</span><br><span class="line">var ctx = canvas.getContext(&apos;2d&apos;);</span><br><span class="line">//接下来画个矩形</span><br><span class="line"></span><br><span class="line">ctx.fillStyle = &quot;rgb(200,0,0)&quot;;  //填充的颜色</span><br><span class="line">ctx.fillRect (10, 10, 55, 50);  //准确来说是填充一个矩形</span><br></pre></td></tr></table></figure></p>
+<p>fillRect(x，y，width,height)接受四个参数：x与y指定了在canvas画布上所绘制的矩形的左上角（相对于原点）的坐标。width和height设置矩形的尺寸。<br>strokeRect(x, y, width, height) 绘制一个矩形的边框<br>clearRect(x, y, width, height) 清除一个矩形</p>
+<p>绘制一个填充三角形<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ctx.beginPath(); //必须</span><br><span class="line">ctx.moveTo(75, 50);   //起点</span><br><span class="line">ctx.lineTo(100, 75);  //第二个点</span><br><span class="line">ctx.lineTo(100, 25);	//终点</span><br><span class="line">ctx.fill();     //闭合</span><br></pre></td></tr></table></figure></p>
+<p>绘制一个描边三角形<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ctx.beginPath();</span><br><span class="line">ctx.moveTo(125,125);</span><br><span class="line">ctx.lineTo(125,45);</span><br><span class="line">ctx.lineTo(45,125);</span><br><span class="line">ctx.closePath();  //闭合</span><br><span class="line">ctx.stroke();</span><br></pre></td></tr></table></figure></p>
+<p>moveTo(x, y)将笔触移动到指定的坐标x以及y上。<br>lineTo(x, y)绘制一条从当前位置到指定x以及y位置的直线。<br>画圆形或圆弧<br>arc(x, y, radius, startAngle, endAngle, anticlockwise)画一个以（x,y）为圆心的以radius为半径的圆弧（圆），从startAngle开始到endAngle结束，按照anticlockwise给定的方向（默认为顺时针）来生成。<br>这里详细介绍一下arc方法，该方法有六个参数：x,y为绘制圆弧所在圆上的圆心坐标。radius为半径。startAngle以及endAngle参数用弧度定义了开始以及结束的弧度。这些都是以x轴为基准。参数anticlockwise为一个布尔值。为true时，是逆时针方向，否则顺时针方向。<br>注意：arc()函数中表示角的单位是弧度，不是角度。角度与弧度的js表达式: 弧度=(Math.PI/180)*角度。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">ctx.beginPath();</span><br><span class="line"> var radius = 20; // 圆弧半径</span><br><span class="line"> var startAngle = 0; // 开始点</span><br><span class="line"> var endAngle = Math.PI*2; // 结束点</span><br><span class="line"> var anticlockwise = false；</span><br><span class="line"> var x = 25；</span><br><span class="line"> var y = 25；</span><br><span class="line"> ctx.arc(x, y, radius, startAngle, endAngle, anticlockwise);</span><br><span class="line"> ctx.fill(); //或者使用ctx.stroke() 描边</span><br></pre></td></tr></table></figure>
+<p>实现思路<br>监听三个鼠标事件，分别是onmousedown，onmousemove，onmouseup。当用户按下鼠标，通过canvas的API画下一个点<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">canvas.onmousedown = function(event)&#123;</span><br><span class="line">	var x = event.clientX</span><br><span class="line">	var y = event.clientY   //获取用户按下鼠标是的坐标</span><br><span class="line">	ctx.beginPath();</span><br><span class="line">	ctx.arc(x,y,3,0,Math.PI*2);   //画一个半径为3像素的圆</span><br><span class="line">	ctx.fill();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>监听mousemove事件，但是不画圆，画线。划线需要两个点，当用户按下鼠标的是起点，第二个点是当前瞬间mousemove的点。所以需要一个变量记录last point<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">var lastPoint = &#123;x: 0,y:0&#125;</span><br><span class="line">canvas.onmousedown = function(event)&#123;</span><br><span class="line">	var x = event.clientX</span><br><span class="line">	var y = event.clientY   //获取用户按下鼠标是的坐标</span><br><span class="line">	lastPoint = &#123;x:x,y:y&#125;       </span><br><span class="line">	ctx.beginPath();</span><br><span class="line">	ctx.arc(x,y,3,0,Math.PI*2);   //画一个半径为3像素的圆</span><br><span class="line">	ctx.fill();</span><br><span class="line">&#125;</span><br><span class="line">canvas.onmousedown = function(event)&#123;</span><br><span class="line">	var x = event.clientX</span><br><span class="line">	var y = event.clientY</span><br><span class="line">	var newPoint = &#123;x: x,y: y&#125;</span><br><span class="line">	ctx.beginPath();</span><br><span class="line">	ctx.lineWidth = 6;  //线的宽度</span><br><span class="line">	ctx.moveTo(lastPoint.x,lastPoint.y);</span><br><span class="line">	ctx.lineTo(newPoint.x,newPoint.y);</span><br><span class="line">	ctx.closePath();</span><br><span class="line">	ctx.stroke();</span><br><span class="line">	lastPoint = newPoint //importent</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>实际上还需要一个变量来记录当前的状态，来记录用户是否按下鼠标或者松开鼠标，否则mousemove一直在触发，一直在画线。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">var canvas = document.getElementById(&apos;canvas&apos;);</span><br><span class="line">var eraser = document.getElementById(&apos;eraser&apos;);</span><br><span class="line">var ctx = canvas.getContext(&apos;2d&apos;);</span><br><span class="line">getSize();</span><br><span class="line">window.onresize = function() &#123;</span><br><span class="line">    getSize();</span><br><span class="line">&#125;</span><br><span class="line">function getSize () &#123;</span><br><span class="line">	var pageWidth = document.documentElement.clientWidth</span><br><span class="line">	var pageHeight = document.documentElement.clientHeight</span><br><span class="line">	canvas.width = pageWidth</span><br><span class="line">	canvas.height = pageHeight</span><br><span class="line">&#125;</span><br><span class="line">实现一个简易画板</span><br><span class="line">功能包括此下载，删除，橡皮擦，不同颜色的画笔。</span><br><span class="line">下载功能代码</span><br></pre></td></tr></table></figure></p>
+<p>download.onclick = function () {<br>    var image = canvas.toDataURL(“image/png”).replace(“image/png”, “image/octet-stream”)<br>    window.location.href=image;<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">特性检测</span><br><span class="line">画板为了实现在PC端移动端兼容，监听的事件是不一样的，所以需要判断一下当前用户的设备是否支持触摸。</span><br></pre></td></tr></table></figure></p>
+<p>document.body.ontouchstart !== undefined<br>```<br>当ontouchstart事件为undefined是表明当前设备不支持触摸，我们监听的是mouse事件。<br>另外为了兼容移动端的设备，css加上meta vp ，保证页面不会被缩放。<br>当用户设备支持touch事件，监听的是ontouchstart，ontouchmove，ontouchend事件，这几个事件也鼠标事件稍微有一些不一样。<br>当触发鼠标事件的时候，我们通过clientX和clientY获取到坐标信息，touch事件获取用户坐标是touches[0].clientX和touches[0].clientY。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/04/Canvas画板/" data-id="cjnza38ti0000b9ormqdct5fa" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/06/04/Canvas画板/" data-id="cjnzctuv70000ysorztiao2rl" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -326,7 +328,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/31/配置webpack-3/" data-id="cjnza38u5000fb9orxv3fny8n" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/05/31/配置webpack-3/" data-id="cjnzctuvw000fysorj2bk1osn" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -371,7 +373,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/22/会动的简历/" data-id="cjnza38tw0006b9or5u6f5mc4" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/05/22/会动的简历/" data-id="cjnzctuvl0005ysorg74bod4h" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -412,7 +414,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/16/添加留言功能/" data-id="cjnza38u3000db9or5mdb71ae" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/05/16/添加留言功能/" data-id="cjnzctuvu000dysorcc7mqo6q" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -452,7 +454,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/12/合集/" data-id="cjnza38tu0005b9ortm9dawyb" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/05/12/合集/" data-id="cjnzctuvn0007ysornspfkqlf" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -492,7 +494,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/11/与文字同宽进度条/" data-id="cjnza38tt0004b9orhjyi0dva" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/05/11/与文字同宽进度条/" data-id="cjnzctuvk0004ysory20l1335" class="article-share-link">Teilen</a>
       
       
     </footer>
